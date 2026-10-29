@@ -16,7 +16,9 @@ Bài tập lớn môn Khai phá dữ liệu: phát hiện email spam tiếng Anh
 
 ## Trạng thái
 
-Repository hiện chứa tài liệu lập kế hoạch và thiết kế. Mã nguồn, dữ liệu, môi trường chạy và mô hình sẽ được bổ sung theo các mốc nghiệm thu; các lệnh trong tài liệu thiết kế là giao diện dự kiến, chưa chạy được ở trạng thái hiện tại.
+Đã triển khai khung package Python, cấu hình, interface mô hình, Decision Tree tự viết bằng NumPy, lưu/tải bundle JSON, xuất luật, thử tham số và benchmark sklearn tùy chọn. Có kiểm thử và CI. NB/LR/SVM, pipeline email thật, ensemble và giao diện vẫn chờ triển khai theo phân công.
+
+Các lệnh toàn dự án trong bản thiết kế là đích tích hợp. Những lệnh đã chạy được cho nhánh Decision Tree được liệt kê dưới đây.
 
 Lộ trình dự kiến gồm 4 tuần, tạm tính từ 29/10 đến 25/11/2026, dự phòng 26-28/11. Hạn nộp chính thức sẽ được cập nhật theo thông báo môn học.
 
@@ -36,3 +38,41 @@ Lộ trình dự kiến gồm 4 tuần, tạm tính từ 29/10 đến 25/11/2026
 4. Tích hợp lần lượt bốn mô hình, sau đó ensemble và demo.
 
 Dữ liệu đầy đủ, môi trường ảo, mô hình đã học và đầu ra thực nghiệm lớn được loại khỏi Git. Khi triển khai, bổ sung hướng dẫn tải dữ liệu và phiên bản dependencies để tái lập kết quả.
+
+## Cài đặt và chạy phần Decision Tree
+
+Đã kiểm tra cục bộ với Python 3.12.14. Package yêu cầu Python >=3.11; CI có cấu hình kiểm tra 3.11/Linux và 3.12/Windows.
+
+```powershell
+python -m venv .venv
+.venv\Scripts\python -m pip install -e ".[dev,benchmark]"
+.venv\Scripts\python -m pytest -q
+.venv\Scripts\python -m spam_detector.cli check-config
+.venv\Scripts\python -m spam_detector.cli demo-tree --output runs/tree-demo --benchmark
+```
+
+Linux/macOS thay `.venv\Scripts\python` bằng `.venv/bin/python`. Nếu chỉ cần mô hình, cài `python -m pip install -e .`; sklearn chỉ cần cho extra `benchmark`. Thư mục `--output` phải chưa tồn tại; dùng tên mới cho mỗi lần chạy.
+
+Demo tạo dữ liệu số học giả lập 4 đặc trưng, không tải hoặc mô phỏng kết quả Enron. Dùng demo để kiểm tra mô hình, xuất luật, round-trip và luồng đánh giá; không dùng điểm số này làm chất lượng email thực tế.
+
+```powershell
+.venv\Scripts\python -m spam_detector.cli tune-tree --data runs/tree-demo/synthetic.npz --output runs/tree-tuning --depths 3 5 10 --leaf-sizes 1 5
+.venv\Scripts\python -m spam_detector.cli evaluate-tree --bundle runs/tree-demo/run/tree.json --data runs/tree-demo/synthetic.npz --split test
+```
+
+Khi có đặc trưng thật từ Minh và ID/nhóm từ Hiệu/Dương:
+
+```powershell
+.venv\Scripts\python -m spam_detector.cli train-tree --data data/processed/tree_features.npz --output runs/tree-enron-01 --benchmark
+```
+
+Archive phải chứa ma trận 0/1, nhãn, tên đặc trưng, ID và nhóm theo [hợp đồng bàn giao](docs/contracts.md). Train/tune chỉ đọc train và validation; test/external chỉ chạy sau khi chốt cấu hình.
+
+## Tài liệu triển khai
+
+- [Interface và định dạng NPZ/bundle](docs/contracts.md).
+- [Tiến độ và phần bàn giao của Doanh](docs/DOANH_WORK.md).
+- [Lý thuyết, cài đặt và báo cáo Decision Tree](reports/decision_tree.md).
+- [Biên bản kiểm tra và phiên bản đã dùng](docs/verification.md).
+
+Mã thuật toán chính: `src/spam_detector/models/decision_tree.py`. Các module mô hình không gọi sklearn. Phần import cây sklearn chỉ nằm trong nhánh benchmark tùy chọn của `tree_workflow.py` và các kiểm thử đối chiếu.

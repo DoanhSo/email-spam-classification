@@ -1,0 +1,12 @@
+seed: 42
+data:
+  split_ratios: [0.60, 0.20, 0.20]
+features:
+  tree:
+    representation: binary
+    select_k: 500
+models:
+  tree:
+    max_depth: 10
+    min_samples_split: 10
+    min_samples_leaf: 5
