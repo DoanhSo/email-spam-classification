@@ -4,7 +4,7 @@
 
 **Thời gian:** 4 tuần; lịch tạm tính 29/10-25/11/2026, dự phòng 26-28/11. Hạn chính thức cần cập nhật khi có thông báo môn học.
 
-**Trạng thái:** Đây là bản thiết kế đích cho toàn nhóm. Đã triển khai package, cấu hình nhánh cây, interface, Decision Tree, bundle JSON, CLI và kiểm thử cho phần Doanh; xem `README.md` và `docs/contracts.md` để biết các lệnh/interface đang chạy được. Các module toàn dự án còn lại bên dưới vẫn là kế hoạch. Chưa có dữ liệu Enron/SpamAssassin hoặc số liệu email thực tế. Kế hoạch phân công tổng thể nằm trong `KE_HOACH_NHOM.md`.
+**Trạng thái:** Đây là bản thiết kế đích cho toàn nhóm. Đã triển khai và train nhánh Decision Tree trên Enron/SpamAssassin thật, bao gồm xử lý dữ liệu, đặc trưng, thử tham số, CV, đánh giá, release và predictor văn bản. Xem `README.md`, `docs/contracts.md` và `reports/enron-v1/REPORT.md` để biết kết quả và các interface đang chạy được. NB/LR/SVM, ensemble và giao diện toàn nhóm còn theo kế hoạch. Kế hoạch phân công tổng thể nằm trong `KE_HOACH_NHOM.md`.
 
 ## 1. Mục tiêu thiết kế và phạm vi 1 tháng
 

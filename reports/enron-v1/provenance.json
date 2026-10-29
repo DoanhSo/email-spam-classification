@@ -1,0 +1,24 @@
+{
+  "enron": {
+    "dataset": "venky73/spam-mails-dataset",
+    "page_url": "https://www.kaggle.com/datasets/venky73/spam-mails-dataset",
+    "download_url": "https://www.kaggle.com/api/v1/datasets/download/venky73/spam-mails-dataset",
+    "file": "spam_ham_dataset.csv",
+    "downloaded_at_utc": "2026-10-29T12:56:38.267759+00:00",
+    "archive_sha256": "ecb669009678f66fe27a21e94c130d816c38cf9c350c5e434156dc658d3299df",
+    "file_sha256": "65386c0361eb99c0be3835d6488cbb9dda2ae0575eb37d2ab543c52a2c7619cb",
+    "license_at_download": "CC0: Public Domain",
+    "version_policy": "Kaggle latest at download; immutable local file/ZIP checksums recorded"
+  },
+  "spamassassin": {
+    "dataset": "nitishabharathi/email-spam-dataset",
+    "page_url": "https://www.kaggle.com/datasets/nitishabharathi/email-spam-dataset",
+    "download_url": "https://www.kaggle.com/api/v1/datasets/download/nitishabharathi/email-spam-dataset",
+    "file": "completeSpamAssassin.csv",
+    "downloaded_at_utc": "2026-10-29T12:56:41.660428+00:00",
+    "archive_sha256": "62ce15e1dfef931d65e47be3c2ca84b37e939b915dd5ea16ec7a82d3a707dd7b",
+    "file_sha256": "f4ed99c846d34ba351b0fba16724700f9f2ac6371ec0c97b86bfb9de738317db",
+    "license_at_download": "CC0: Public Domain",
+    "version_policy": "Kaggle latest at download; immutable local file/ZIP checksums recorded"
+  }
+}

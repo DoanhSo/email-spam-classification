@@ -1,5 +1,7 @@
 # Decision Tree: phần lý thuyết và cài đặt của Nguyễn Quốc Doanh
 
+**Đã có thực nghiệm email thật:** xem [báo cáo Enron/SpamAssassin](enron-v1/REPORT.md). Phần số liệu giả lập bên dưới được giữ làm nghiệm thu thuật toán, không dùng thay kết quả email thật.
+
 ## Mục tiêu
 
 Cây phân loại email thành ham (0) hoặc spam (1) thông qua chuỗi câu hỏi một từ có xuất hiện hay không. Mỗi cột đầu vào là một từ đã được chọn trên train; giá trị 0/1. Cây tự học từ dữ liệu, không đặt sẵn danh sách quy tắc spam bằng tay.

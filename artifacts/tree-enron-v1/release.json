@@ -1,0 +1,54 @@
+{
+  "format_version": 1,
+  "preprocessing_version": 1,
+  "dataset_fingerprint": "4335af17eef51c98b15073d7b93c8fc1e64174b436e077c9a94163b0c3669051",
+  "selected": {
+    "model": "self_written_binary_tree",
+    "split": "validation",
+    "data_sha256": "d5bee454dc071000b76235544175cc2f621bbdde5bc940092ed4c467f7a4fa53",
+    "parameters": {
+      "max_depth": 15,
+      "min_samples_split": 10,
+      "min_samples_leaf": 1
+    },
+    "metrics": {
+      "n_samples": 979,
+      "tn": 631,
+      "fp": 55,
+      "fn": 17,
+      "tp": 276,
+      "accuracy": 0.9264555669050051,
+      "precision_spam": 0.8338368580060423,
+      "recall_spam": 0.9419795221843004,
+      "f1_spam": 0.8846153846153848
+    },
+    "depth": 15,
+    "nodes": 97,
+    "leaves": 49,
+    "fit_seconds": 0.09867019997909665,
+    "predict_seconds": 0.0018245999235659838,
+    "note": "Input features must already be fit on train only. No text transformer is included.",
+    "k": 1000,
+    "train_metrics": {
+      "n_samples": 2936,
+      "tn": 1926,
+      "fp": 133,
+      "fn": 5,
+      "tp": 872,
+      "accuracy": 0.9529972752043597,
+      "precision_spam": 0.8676616915422886,
+      "recall_spam": 0.9942987457240593,
+      "f1_spam": 0.926673751328374
+    }
+  },
+  "checksums": {
+    "tree.json": "4f012987c3d7e28936566b52ca42d479a1a585af2feb8c96557e3976df80b07a",
+    "features.json": "fc076ca4c24a9be37e3d90b3ffd9f229e51633b4223ccdc5dac8e46e68abd81e"
+  },
+  "versions": {
+    "numpy": "2.3.5",
+    "scikit-learn": "1.9.1",
+    "beautifulsoup4": "4.15.0"
+  },
+  "packaging": "JSON normalized to LF for portable Git checkout; fitted state unchanged"
+}

@@ -1,0 +1,18 @@
+{
+  "verified": true,
+  "runs_compared": [
+    "enron-real-v1",
+    "enron-real-v2"
+  ],
+  "identical": [
+    "cleaned_data",
+    "split_ids",
+    "selected_parameters",
+    "selected_k",
+    "tree_state",
+    "all_predictions",
+    "all_metrics",
+    "cv_summary"
+  ],
+  "timings_expected_to_vary": true
+}

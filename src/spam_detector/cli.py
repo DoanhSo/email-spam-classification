@@ -31,9 +31,44 @@ def main(argv: list[str] | None = None) -> int:
     demo.add_argument("--output", required=True, help="New demo directory")
     demo.add_argument("--config", default="configs/baseline.yaml")
     demo.add_argument("--benchmark", action="store_true")
+    real = sub.add_parser("train-enron", help="Download, prepare, tune, CV, evaluate and package real email data")
+    real.add_argument("--output", required=True)
+    real.add_argument("--raw-dir", default="data/raw")
+    real.add_argument("--seed", type=int, default=42)
+    prepare = sub.add_parser("prepare-enron")
+    prepare.add_argument("--enron", required=True)
+    prepare.add_argument("--external", required=True)
+    prepare.add_argument("--output", required=True)
+    prepare.add_argument("--seed", type=int, default=42)
+    feature = sub.add_parser("build-tree-features")
+    feature.add_argument("--prepared", required=True)
+    feature.add_argument("--output", required=True)
+    feature.add_argument("--k", type=int, default=500)
+    text = sub.add_parser("predict-text")
+    text.add_argument("--release", required=True)
+    text.add_argument("--text", required=True)
     args = parser.parse_args(argv)
     try:
-        if args.command == "check-config":
+        if args.command == "train-enron":
+            from .config import ProjectConfig
+            from .enron_training import run_enron_training
+            ProjectConfig(seed=args.seed)
+            summary = run_enron_training(args.output, args.raw_dir, args.seed,
+                                         progress=lambda message: print(message, file=sys.stderr, flush=True))
+            result = {"output": args.output, "selected": summary["selected"],
+                      "evaluation": summary["evaluation"], "round_trip_verified": summary["round_trip_verified"]}
+        elif args.command == "prepare-enron":
+            from .data import prepare_data
+            result = prepare_data(args.enron, args.external, args.output, args.seed)
+        elif args.command == "build-tree-features":
+            from .data import read_records
+            from .features import build_features
+            fitted = build_features(read_records(args.prepared), args.output, args.k)
+            result = {"output": args.output, "effective_k": len(fitted.get_feature_names())}
+        elif args.command == "predict-text":
+            from .inference import TextPredictor
+            result = TextPredictor(args.release).predict_texts([args.text])[0]
+        elif args.command == "check-config":
             config = load_config(args.config)
             result = {"status": "valid", "implemented_models": ["tree"], "tree": config.tree}
         elif args.command == "evaluate-tree":

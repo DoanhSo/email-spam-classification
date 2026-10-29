@@ -1,0 +1,29 @@
+{
+  "split": "validation",
+  "sklearn_version": "1.9.1",
+  "self_written": {
+    "n_samples": 979,
+    "tn": 631,
+    "fp": 55,
+    "fn": 17,
+    "tp": 276,
+    "accuracy": 0.9264555669050051,
+    "precision_spam": 0.8338368580060423,
+    "recall_spam": 0.9419795221843004,
+    "f1_spam": 0.8846153846153848
+  },
+  "sklearn": {
+    "n_samples": 979,
+    "tn": 631,
+    "fp": 55,
+    "fn": 14,
+    "tp": 279,
+    "accuracy": 0.9295199182839632,
+    "precision_spam": 0.8353293413173652,
+    "recall_spam": 0.9522184300341296,
+    "f1_spam": 0.8899521531100478
+  },
+  "prediction_agreement": 0.9948927477017364,
+  "sklearn_fit_seconds": 0.2992338000331074,
+  "note": "Feature tie-breaking and zero-gain split policy may differ."
+}

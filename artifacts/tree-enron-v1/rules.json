@@ -1,0 +1,2789 @@
+[
+  {
+    "conditions": [
+      {
+        "feature_index": 283,
+        "word": "enron",
+        "present": false
+      },
+      {
+        "feature_index": 412,
+        "word": "http",
+        "present": false
+      },
+      {
+        "feature_index": 882,
+        "word": "thanks",
+        "present": false
+      },
+      {
+        "feature_index": 405,
+        "word": "hpl",
+        "present": false
+      },
+      {
+        "feature_index": 551,
+        "word": "meter",
+        "present": false
+      },
+      {
+        "feature_index": 77,
+        "word": "attached",
+        "present": false
+      },
+      {
+        "feature_index": 356,
+        "word": "gas",
+        "present": false
+      },
+      {
+        "feature_index": 211,
+        "word": "daren",
+        "present": false
+      },
+      {
+        "feature_index": 680,
+        "word": "pm",
+        "present": false
+      },
+      {
+        "feature_index": 565,
+        "word": "mmbtu",
+        "present": false
+      },
+      {
+        "feature_index": 247,
+        "word": "doc",
+        "present": false
+      },
+      {
+        "feature_index": 722,
+        "word": "questions",
+        "present": false
+      },
+      {
+        "feature_index": 813,
+        "word": "sitara",
+        "present": false
+      },
+      {
+        "feature_index": 677,
+        "word": "plant",
+        "present": false
+      },
+      {
+        "feature_index": 476,
+        "word": "julie",
+        "present": false
+      }
+    ],
+    "prediction": 1,
+    "n_samples": 672,
+    "spam_count": 545,
+    "spam_fraction": 0.8110119047619048
+  },
+  {
+    "conditions": [
+      {
+        "feature_index": 283,
+        "word": "enron",
+        "present": false
+      },
+      {
+        "feature_index": 412,
+        "word": "http",
+        "present": false
+      },
+      {
+        "feature_index": 882,
+        "word": "thanks",
+        "present": false
+      },
+      {
+        "feature_index": 405,
+        "word": "hpl",
+        "present": false
+      },
+      {
+        "feature_index": 551,
+        "word": "meter",
+        "present": false
+      },
+      {
+        "feature_index": 77,
+        "word": "attached",
+        "present": false
+      },
+      {
+        "feature_index": 356,
+        "word": "gas",
+        "present": false
+      },
+      {
+        "feature_index": 211,
+        "word": "daren",
+        "present": false
+      },
+      {
+        "feature_index": 680,
+        "word": "pm",
+        "present": false
+      },
+      {
+        "feature_index": 565,
+        "word": "mmbtu",
+        "present": false
+      },
+      {
+        "feature_index": 247,
+        "word": "doc",
+        "present": false
+      },
+      {
+        "feature_index": 722,
+        "word": "questions",
+        "present": false
+      },
+      {
+        "feature_index": 813,
+        "word": "sitara",
+        "present": false
+      },
+      {
+        "feature_index": 677,
+        "word": "plant",
+        "present": false
+      },
+      {
+        "feature_index": 476,
+        "word": "julie",
+        "present": true
+      }
+    ],
+    "prediction": 0,
+    "n_samples": 8,
+    "spam_count": 0,
+    "spam_fraction": 0.0
+  },
+  {
+    "conditions": [
+      {
+        "feature_index": 283,
+        "word": "enron",
+        "present": false
+      },
+      {
+        "feature_index": 412,
+        "word": "http",
+        "present": false
+      },
+      {
+        "feature_index": 882,
+        "word": "thanks",
+        "present": false
+      },
+      {
+        "feature_index": 405,
+        "word": "hpl",
+        "present": false
+      },
+      {
+        "feature_index": 551,
+        "word": "meter",
+        "present": false
+      },
+      {
+        "feature_index": 77,
+        "word": "attached",
+        "present": false
+      },
+      {
+        "feature_index": 356,
+        "word": "gas",
+        "present": false
+      },
+      {
+        "feature_index": 211,
+        "word": "daren",
+        "present": false
+      },
+      {
+        "feature_index": 680,
+        "word": "pm",
+        "present": false
+      },
+      {
+        "feature_index": 565,
+        "word": "mmbtu",
+        "present": false
+      },
+      {
+        "feature_index": 247,
+        "word": "doc",
+        "present": false
+      },
+      {
+        "feature_index": 722,
+        "word": "questions",
+        "present": false
+      },
+      {
+        "feature_index": 813,
+        "word": "sitara",
+        "present": false
+      },
+      {
+        "feature_index": 677,
+        "word": "plant",
+        "present": true
+      },
+      {
+        "feature_index": 634,
+        "word": "our",
+        "present": false
+      }
+    ],
+    "prediction": 0,
+    "n_samples": 15,
+    "spam_count": 1,
+    "spam_fraction": 0.06666666666666667
+  },
+  {
+    "conditions": [
+      {
+        "feature_index": 283,
+        "word": "enron",
+        "present": false
+      },
+      {
+        "feature_index": 412,
+        "word": "http",
+        "present": false
+      },
+      {
+        "feature_index": 882,
+        "word": "thanks",
+        "present": false
+      },
+      {
+        "feature_index": 405,
+        "word": "hpl",
+        "present": false
+      },
+      {
+        "feature_index": 551,
+        "word": "meter",
+        "present": false
+      },
+      {
+        "feature_index": 77,
+        "word": "attached",
+        "present": false
+      },
+      {
+        "feature_index": 356,
+        "word": "gas",
+        "present": false
+      },
+      {
+        "feature_index": 211,
+        "word": "daren",
+        "present": false
+      },
+      {
+        "feature_index": 680,
+        "word": "pm",
+        "present": false
+      },
+      {
+        "feature_index": 565,
+        "word": "mmbtu",
+        "present": false
+      },
+      {
+        "feature_index": 247,
+        "word": "doc",
+        "present": false
+      },
+      {
+        "feature_index": 722,
+        "word": "questions",
+        "present": false
+      },
+      {
+        "feature_index": 813,
+        "word": "sitara",
+        "present": false
+      },
+      {
+        "feature_index": 677,
+        "word": "plant",
+        "present": true
+      },
+      {
+        "feature_index": 634,
+        "word": "our",
+        "present": true
+      }
+    ],
+    "prediction": 1,
+    "n_samples": 3,
+    "spam_count": 3,
+    "spam_fraction": 1.0
+  },
+  {
+    "conditions": [
+      {
+        "feature_index": 283,
+        "word": "enron",
+        "present": false
+      },
+      {
+        "feature_index": 412,
+        "word": "http",
+        "present": false
+      },
+      {
+        "feature_index": 882,
+        "word": "thanks",
+        "present": false
+      },
+      {
+        "feature_index": 405,
+        "word": "hpl",
+        "present": false
+      },
+      {
+        "feature_index": 551,
+        "word": "meter",
+        "present": false
+      },
+      {
+        "feature_index": 77,
+        "word": "attached",
+        "present": false
+      },
+      {
+        "feature_index": 356,
+        "word": "gas",
+        "present": false
+      },
+      {
+        "feature_index": 211,
+        "word": "daren",
+        "present": false
+      },
+      {
+        "feature_index": 680,
+        "word": "pm",
+        "present": false
+      },
+      {
+        "feature_index": 565,
+        "word": "mmbtu",
+        "present": false
+      },
+      {
+        "feature_index": 247,
+        "word": "doc",
+        "present": false
+      },
+      {
+        "feature_index": 722,
+        "word": "questions",
+        "present": false
+      },
+      {
+        "feature_index": 813,
+        "word": "sitara",
+        "present": true
+      }
+    ],
+    "prediction": 0,
+    "n_samples": 11,
+    "spam_count": 0,
+    "spam_fraction": 0.0
+  },
+  {
+    "conditions": [
+      {
+        "feature_index": 283,
+        "word": "enron",
+        "present": false
+      },
+      {
+        "feature_index": 412,
+        "word": "http",
+        "present": false
+      },
+      {
+        "feature_index": 882,
+        "word": "thanks",
+        "present": false
+      },
+      {
+        "feature_index": 405,
+        "word": "hpl",
+        "present": false
+      },
+      {
+        "feature_index": 551,
+        "word": "meter",
+        "present": false
+      },
+      {
+        "feature_index": 77,
+        "word": "attached",
+        "present": false
+      },
+      {
+        "feature_index": 356,
+        "word": "gas",
+        "present": false
+      },
+      {
+        "feature_index": 211,
+        "word": "daren",
+        "present": false
+      },
+      {
+        "feature_index": 680,
+        "word": "pm",
+        "present": false
+      },
+      {
+        "feature_index": 565,
+        "word": "mmbtu",
+        "present": false
+      },
+      {
+        "feature_index": 247,
+        "word": "doc",
+        "present": false
+      },
+      {
+        "feature_index": 722,
+        "word": "questions",
+        "present": true
+      },
+      {
+        "feature_index": 330,
+        "word": "following",
+        "present": false
+      },
+      {
+        "feature_index": 391,
+        "word": "hi",
+        "present": false
+      },
+      {
+        "feature_index": 16,
+        "word": "ads",
+        "present": false
+      }
+    ],
+    "prediction": 0,
+    "n_samples": 27,
+    "spam_count": 0,
+    "spam_fraction": 0.0
+  },
+  {
+    "conditions": [
+      {
+        "feature_index": 283,
+        "word": "enron",
+        "present": false
+      },
+      {
+        "feature_index": 412,
+        "word": "http",
+        "present": false
+      },
+      {
+        "feature_index": 882,
+        "word": "thanks",
+        "present": false
+      },
+      {
+        "feature_index": 405,
+        "word": "hpl",
+        "present": false
+      },
+      {
+        "feature_index": 551,
+        "word": "meter",
+        "present": false
+      },
+      {
+        "feature_index": 77,
+        "word": "attached",
+        "present": false
+      },
+      {
+        "feature_index": 356,
+        "word": "gas",
+        "present": false
+      },
+      {
+        "feature_index": 211,
+        "word": "daren",
+        "present": false
+      },
+      {
+        "feature_index": 680,
+        "word": "pm",
+        "present": false
+      },
+      {
+        "feature_index": 565,
+        "word": "mmbtu",
+        "present": false
+      },
+      {
+        "feature_index": 247,
+        "word": "doc",
+        "present": false
+      },
+      {
+        "feature_index": 722,
+        "word": "questions",
+        "present": true
+      },
+      {
+        "feature_index": 330,
+        "word": "following",
+        "present": false
+      },
+      {
+        "feature_index": 391,
+        "word": "hi",
+        "present": false
+      },
+      {
+        "feature_index": 16,
+        "word": "ads",
+        "present": true
+      }
+    ],
+    "prediction": 1,
+    "n_samples": 1,
+    "spam_count": 1,
+    "spam_fraction": 1.0
+  },
+  {
+    "conditions": [
+      {
+        "feature_index": 283,
+        "word": "enron",
+        "present": false
+      },
+      {
+        "feature_index": 412,
+        "word": "http",
+        "present": false
+      },
+      {
+        "feature_index": 882,
+        "word": "thanks",
+        "present": false
+      },
+      {
+        "feature_index": 405,
+        "word": "hpl",
+        "present": false
+      },
+      {
+        "feature_index": 551,
+        "word": "meter",
+        "present": false
+      },
+      {
+        "feature_index": 77,
+        "word": "attached",
+        "present": false
+      },
+      {
+        "feature_index": 356,
+        "word": "gas",
+        "present": false
+      },
+      {
+        "feature_index": 211,
+        "word": "daren",
+        "present": false
+      },
+      {
+        "feature_index": 680,
+        "word": "pm",
+        "present": false
+      },
+      {
+        "feature_index": 565,
+        "word": "mmbtu",
+        "present": false
+      },
+      {
+        "feature_index": 247,
+        "word": "doc",
+        "present": false
+      },
+      {
+        "feature_index": 722,
+        "word": "questions",
+        "present": true
+      },
+      {
+        "feature_index": 330,
+        "word": "following",
+        "present": false
+      },
+      {
+        "feature_index": 391,
+        "word": "hi",
+        "present": true
+      }
+    ],
+    "prediction": 1,
+    "n_samples": 4,
+    "spam_count": 3,
+    "spam_fraction": 0.75
+  },
+  {
+    "conditions": [
+      {
+        "feature_index": 283,
+        "word": "enron",
+        "present": false
+      },
+      {
+        "feature_index": 412,
+        "word": "http",
+        "present": false
+      },
+      {
+        "feature_index": 882,
+        "word": "thanks",
+        "present": false
+      },
+      {
+        "feature_index": 405,
+        "word": "hpl",
+        "present": false
+      },
+      {
+        "feature_index": 551,
+        "word": "meter",
+        "present": false
+      },
+      {
+        "feature_index": 77,
+        "word": "attached",
+        "present": false
+      },
+      {
+        "feature_index": 356,
+        "word": "gas",
+        "present": false
+      },
+      {
+        "feature_index": 211,
+        "word": "daren",
+        "present": false
+      },
+      {
+        "feature_index": 680,
+        "word": "pm",
+        "present": false
+      },
+      {
+        "feature_index": 565,
+        "word": "mmbtu",
+        "present": false
+      },
+      {
+        "feature_index": 247,
+        "word": "doc",
+        "present": false
+      },
+      {
+        "feature_index": 722,
+        "word": "questions",
+        "present": true
+      },
+      {
+        "feature_index": 330,
+        "word": "following",
+        "present": true
+      }
+    ],
+    "prediction": 1,
+    "n_samples": 4,
+    "spam_count": 4,
+    "spam_fraction": 1.0
+  },
+  {
+    "conditions": [
+      {
+        "feature_index": 283,
+        "word": "enron",
+        "present": false
+      },
+      {
+        "feature_index": 412,
+        "word": "http",
+        "present": false
+      },
+      {
+        "feature_index": 882,
+        "word": "thanks",
+        "present": false
+      },
+      {
+        "feature_index": 405,
+        "word": "hpl",
+        "present": false
+      },
+      {
+        "feature_index": 551,
+        "word": "meter",
+        "present": false
+      },
+      {
+        "feature_index": 77,
+        "word": "attached",
+        "present": false
+      },
+      {
+        "feature_index": 356,
+        "word": "gas",
+        "present": false
+      },
+      {
+        "feature_index": 211,
+        "word": "daren",
+        "present": false
+      },
+      {
+        "feature_index": 680,
+        "word": "pm",
+        "present": false
+      },
+      {
+        "feature_index": 565,
+        "word": "mmbtu",
+        "present": false
+      },
+      {
+        "feature_index": 247,
+        "word": "doc",
+        "present": true
+      },
+      {
+        "feature_index": 157,
+        "word": "cia",
+        "present": false
+      }
+    ],
+    "prediction": 0,
+    "n_samples": 22,
+    "spam_count": 0,
+    "spam_fraction": 0.0
+  },
+  {
+    "conditions": [
+      {
+        "feature_index": 283,
+        "word": "enron",
+        "present": false
+      },
+      {
+        "feature_index": 412,
+        "word": "http",
+        "present": false
+      },
+      {
+        "feature_index": 882,
+        "word": "thanks",
+        "present": false
+      },
+      {
+        "feature_index": 405,
+        "word": "hpl",
+        "present": false
+      },
+      {
+        "feature_index": 551,
+        "word": "meter",
+        "present": false
+      },
+      {
+        "feature_index": 77,
+        "word": "attached",
+        "present": false
+      },
+      {
+        "feature_index": 356,
+        "word": "gas",
+        "present": false
+      },
+      {
+        "feature_index": 211,
+        "word": "daren",
+        "present": false
+      },
+      {
+        "feature_index": 680,
+        "word": "pm",
+        "present": false
+      },
+      {
+        "feature_index": 565,
+        "word": "mmbtu",
+        "present": false
+      },
+      {
+        "feature_index": 247,
+        "word": "doc",
+        "present": true
+      },
+      {
+        "feature_index": 157,
+        "word": "cia",
+        "present": true
+      }
+    ],
+    "prediction": 1,
+    "n_samples": 2,
+    "spam_count": 2,
+    "spam_fraction": 1.0
+  },
+  {
+    "conditions": [
+      {
+        "feature_index": 283,
+        "word": "enron",
+        "present": false
+      },
+      {
+        "feature_index": 412,
+        "word": "http",
+        "present": false
+      },
+      {
+        "feature_index": 882,
+        "word": "thanks",
+        "present": false
+      },
+      {
+        "feature_index": 405,
+        "word": "hpl",
+        "present": false
+      },
+      {
+        "feature_index": 551,
+        "word": "meter",
+        "present": false
+      },
+      {
+        "feature_index": 77,
+        "word": "attached",
+        "present": false
+      },
+      {
+        "feature_index": 356,
+        "word": "gas",
+        "present": false
+      },
+      {
+        "feature_index": 211,
+        "word": "daren",
+        "present": false
+      },
+      {
+        "feature_index": 680,
+        "word": "pm",
+        "present": false
+      },
+      {
+        "feature_index": 565,
+        "word": "mmbtu",
+        "present": true
+      }
+    ],
+    "prediction": 0,
+    "n_samples": 19,
+    "spam_count": 0,
+    "spam_fraction": 0.0
+  },
+  {
+    "conditions": [
+      {
+        "feature_index": 283,
+        "word": "enron",
+        "present": false
+      },
+      {
+        "feature_index": 412,
+        "word": "http",
+        "present": false
+      },
+      {
+        "feature_index": 882,
+        "word": "thanks",
+        "present": false
+      },
+      {
+        "feature_index": 405,
+        "word": "hpl",
+        "present": false
+      },
+      {
+        "feature_index": 551,
+        "word": "meter",
+        "present": false
+      },
+      {
+        "feature_index": 77,
+        "word": "attached",
+        "present": false
+      },
+      {
+        "feature_index": 356,
+        "word": "gas",
+        "present": false
+      },
+      {
+        "feature_index": 211,
+        "word": "daren",
+        "present": false
+      },
+      {
+        "feature_index": 680,
+        "word": "pm",
+        "present": true
+      },
+      {
+        "feature_index": 34,
+        "word": "aid",
+        "present": false
+      },
+      {
+        "feature_index": 67,
+        "word": "approved",
+        "present": false
+      },
+      {
+        "feature_index": 98,
+        "word": "bigger",
+        "present": false
+      }
+    ],
+    "prediction": 0,
+    "n_samples": 33,
+    "spam_count": 0,
+    "spam_fraction": 0.0
+  },
+  {
+    "conditions": [
+      {
+        "feature_index": 283,
+        "word": "enron",
+        "present": false
+      },
+      {
+        "feature_index": 412,
+        "word": "http",
+        "present": false
+      },
+      {
+        "feature_index": 882,
+        "word": "thanks",
+        "present": false
+      },
+      {
+        "feature_index": 405,
+        "word": "hpl",
+        "present": false
+      },
+      {
+        "feature_index": 551,
+        "word": "meter",
+        "present": false
+      },
+      {
+        "feature_index": 77,
+        "word": "attached",
+        "present": false
+      },
+      {
+        "feature_index": 356,
+        "word": "gas",
+        "present": false
+      },
+      {
+        "feature_index": 211,
+        "word": "daren",
+        "present": false
+      },
+      {
+        "feature_index": 680,
+        "word": "pm",
+        "present": true
+      },
+      {
+        "feature_index": 34,
+        "word": "aid",
+        "present": false
+      },
+      {
+        "feature_index": 67,
+        "word": "approved",
+        "present": false
+      },
+      {
+        "feature_index": 98,
+        "word": "bigger",
+        "present": true
+      }
+    ],
+    "prediction": 1,
+    "n_samples": 1,
+    "spam_count": 1,
+    "spam_fraction": 1.0
+  },
+  {
+    "conditions": [
+      {
+        "feature_index": 283,
+        "word": "enron",
+        "present": false
+      },
+      {
+        "feature_index": 412,
+        "word": "http",
+        "present": false
+      },
+      {
+        "feature_index": 882,
+        "word": "thanks",
+        "present": false
+      },
+      {
+        "feature_index": 405,
+        "word": "hpl",
+        "present": false
+      },
+      {
+        "feature_index": 551,
+        "word": "meter",
+        "present": false
+      },
+      {
+        "feature_index": 77,
+        "word": "attached",
+        "present": false
+      },
+      {
+        "feature_index": 356,
+        "word": "gas",
+        "present": false
+      },
+      {
+        "feature_index": 211,
+        "word": "daren",
+        "present": false
+      },
+      {
+        "feature_index": 680,
+        "word": "pm",
+        "present": true
+      },
+      {
+        "feature_index": 34,
+        "word": "aid",
+        "present": false
+      },
+      {
+        "feature_index": 67,
+        "word": "approved",
+        "present": true
+      }
+    ],
+    "prediction": 1,
+    "n_samples": 1,
+    "spam_count": 1,
+    "spam_fraction": 1.0
+  },
+  {
+    "conditions": [
+      {
+        "feature_index": 283,
+        "word": "enron",
+        "present": false
+      },
+      {
+        "feature_index": 412,
+        "word": "http",
+        "present": false
+      },
+      {
+        "feature_index": 882,
+        "word": "thanks",
+        "present": false
+      },
+      {
+        "feature_index": 405,
+        "word": "hpl",
+        "present": false
+      },
+      {
+        "feature_index": 551,
+        "word": "meter",
+        "present": false
+      },
+      {
+        "feature_index": 77,
+        "word": "attached",
+        "present": false
+      },
+      {
+        "feature_index": 356,
+        "word": "gas",
+        "present": false
+      },
+      {
+        "feature_index": 211,
+        "word": "daren",
+        "present": false
+      },
+      {
+        "feature_index": 680,
+        "word": "pm",
+        "present": true
+      },
+      {
+        "feature_index": 34,
+        "word": "aid",
+        "present": true
+      }
+    ],
+    "prediction": 1,
+    "n_samples": 1,
+    "spam_count": 1,
+    "spam_fraction": 1.0
+  },
+  {
+    "conditions": [
+      {
+        "feature_index": 283,
+        "word": "enron",
+        "present": false
+      },
+      {
+        "feature_index": 412,
+        "word": "http",
+        "present": false
+      },
+      {
+        "feature_index": 882,
+        "word": "thanks",
+        "present": false
+      },
+      {
+        "feature_index": 405,
+        "word": "hpl",
+        "present": false
+      },
+      {
+        "feature_index": 551,
+        "word": "meter",
+        "present": false
+      },
+      {
+        "feature_index": 77,
+        "word": "attached",
+        "present": false
+      },
+      {
+        "feature_index": 356,
+        "word": "gas",
+        "present": false
+      },
+      {
+        "feature_index": 211,
+        "word": "daren",
+        "present": true
+      }
+    ],
+    "prediction": 0,
+    "n_samples": 39,
+    "spam_count": 0,
+    "spam_fraction": 0.0
+  },
+  {
+    "conditions": [
+      {
+        "feature_index": 283,
+        "word": "enron",
+        "present": false
+      },
+      {
+        "feature_index": 412,
+        "word": "http",
+        "present": false
+      },
+      {
+        "feature_index": 882,
+        "word": "thanks",
+        "present": false
+      },
+      {
+        "feature_index": 405,
+        "word": "hpl",
+        "present": false
+      },
+      {
+        "feature_index": 551,
+        "word": "meter",
+        "present": false
+      },
+      {
+        "feature_index": 77,
+        "word": "attached",
+        "present": false
+      },
+      {
+        "feature_index": 356,
+        "word": "gas",
+        "present": true
+      },
+      {
+        "feature_index": 146,
+        "word": "certain",
+        "present": false
+      },
+      {
+        "feature_index": 30,
+        "word": "age",
+        "present": false
+      }
+    ],
+    "prediction": 0,
+    "n_samples": 60,
+    "spam_count": 0,
+    "spam_fraction": 0.0
+  },
+  {
+    "conditions": [
+      {
+        "feature_index": 283,
+        "word": "enron",
+        "present": false
+      },
+      {
+        "feature_index": 412,
+        "word": "http",
+        "present": false
+      },
+      {
+        "feature_index": 882,
+        "word": "thanks",
+        "present": false
+      },
+      {
+        "feature_index": 405,
+        "word": "hpl",
+        "present": false
+      },
+      {
+        "feature_index": 551,
+        "word": "meter",
+        "present": false
+      },
+      {
+        "feature_index": 77,
+        "word": "attached",
+        "present": false
+      },
+      {
+        "feature_index": 356,
+        "word": "gas",
+        "present": true
+      },
+      {
+        "feature_index": 146,
+        "word": "certain",
+        "present": false
+      },
+      {
+        "feature_index": 30,
+        "word": "age",
+        "present": true
+      }
+    ],
+    "prediction": 1,
+    "n_samples": 1,
+    "spam_count": 1,
+    "spam_fraction": 1.0
+  },
+  {
+    "conditions": [
+      {
+        "feature_index": 283,
+        "word": "enron",
+        "present": false
+      },
+      {
+        "feature_index": 412,
+        "word": "http",
+        "present": false
+      },
+      {
+        "feature_index": 882,
+        "word": "thanks",
+        "present": false
+      },
+      {
+        "feature_index": 405,
+        "word": "hpl",
+        "present": false
+      },
+      {
+        "feature_index": 551,
+        "word": "meter",
+        "present": false
+      },
+      {
+        "feature_index": 77,
+        "word": "attached",
+        "present": false
+      },
+      {
+        "feature_index": 356,
+        "word": "gas",
+        "present": true
+      },
+      {
+        "feature_index": 146,
+        "word": "certain",
+        "present": true
+      }
+    ],
+    "prediction": 1,
+    "n_samples": 6,
+    "spam_count": 6,
+    "spam_fraction": 1.0
+  },
+  {
+    "conditions": [
+      {
+        "feature_index": 283,
+        "word": "enron",
+        "present": false
+      },
+      {
+        "feature_index": 412,
+        "word": "http",
+        "present": false
+      },
+      {
+        "feature_index": 882,
+        "word": "thanks",
+        "present": false
+      },
+      {
+        "feature_index": 405,
+        "word": "hpl",
+        "present": false
+      },
+      {
+        "feature_index": 551,
+        "word": "meter",
+        "present": false
+      },
+      {
+        "feature_index": 77,
+        "word": "attached",
+        "present": true
+      },
+      {
+        "feature_index": 161,
+        "word": "claim",
+        "present": false
+      }
+    ],
+    "prediction": 0,
+    "n_samples": 72,
+    "spam_count": 0,
+    "spam_fraction": 0.0
+  },
+  {
+    "conditions": [
+      {
+        "feature_index": 283,
+        "word": "enron",
+        "present": false
+      },
+      {
+        "feature_index": 412,
+        "word": "http",
+        "present": false
+      },
+      {
+        "feature_index": 882,
+        "word": "thanks",
+        "present": false
+      },
+      {
+        "feature_index": 405,
+        "word": "hpl",
+        "present": false
+      },
+      {
+        "feature_index": 551,
+        "word": "meter",
+        "present": false
+      },
+      {
+        "feature_index": 77,
+        "word": "attached",
+        "present": true
+      },
+      {
+        "feature_index": 161,
+        "word": "claim",
+        "present": true
+      }
+    ],
+    "prediction": 1,
+    "n_samples": 5,
+    "spam_count": 5,
+    "spam_fraction": 1.0
+  },
+  {
+    "conditions": [
+      {
+        "feature_index": 283,
+        "word": "enron",
+        "present": false
+      },
+      {
+        "feature_index": 412,
+        "word": "http",
+        "present": false
+      },
+      {
+        "feature_index": 882,
+        "word": "thanks",
+        "present": false
+      },
+      {
+        "feature_index": 405,
+        "word": "hpl",
+        "present": false
+      },
+      {
+        "feature_index": 551,
+        "word": "meter",
+        "present": true
+      }
+    ],
+    "prediction": 0,
+    "n_samples": 107,
+    "spam_count": 0,
+    "spam_fraction": 0.0
+  },
+  {
+    "conditions": [
+      {
+        "feature_index": 283,
+        "word": "enron",
+        "present": false
+      },
+      {
+        "feature_index": 412,
+        "word": "http",
+        "present": false
+      },
+      {
+        "feature_index": 882,
+        "word": "thanks",
+        "present": false
+      },
+      {
+        "feature_index": 405,
+        "word": "hpl",
+        "present": true
+      }
+    ],
+    "prediction": 0,
+    "n_samples": 215,
+    "spam_count": 0,
+    "spam_fraction": 0.0
+  },
+  {
+    "conditions": [
+      {
+        "feature_index": 283,
+        "word": "enron",
+        "present": false
+      },
+      {
+        "feature_index": 412,
+        "word": "http",
+        "present": false
+      },
+      {
+        "feature_index": 882,
+        "word": "thanks",
+        "present": true
+      },
+      {
+        "feature_index": 457,
+        "word": "investment",
+        "present": false
+      },
+      {
+        "feature_index": 76,
+        "word": "atleast",
+        "present": false
+      },
+      {
+        "feature_index": 385,
+        "word": "hello",
+        "present": false
+      },
+      {
+        "feature_index": 721,
+        "word": "quality",
+        "present": false
+      },
+      {
+        "feature_index": 109,
+        "word": "brand",
+        "present": false
+      },
+      {
+        "feature_index": 575,
+        "word": "movies",
+        "present": false
+      }
+    ],
+    "prediction": 0,
+    "n_samples": 411,
+    "spam_count": 0,
+    "spam_fraction": 0.0
+  },
+  {
+    "conditions": [
+      {
+        "feature_index": 283,
+        "word": "enron",
+        "present": false
+      },
+      {
+        "feature_index": 412,
+        "word": "http",
+        "present": false
+      },
+      {
+        "feature_index": 882,
+        "word": "thanks",
+        "present": true
+      },
+      {
+        "feature_index": 457,
+        "word": "investment",
+        "present": false
+      },
+      {
+        "feature_index": 76,
+        "word": "atleast",
+        "present": false
+      },
+      {
+        "feature_index": 385,
+        "word": "hello",
+        "present": false
+      },
+      {
+        "feature_index": 721,
+        "word": "quality",
+        "present": false
+      },
+      {
+        "feature_index": 109,
+        "word": "brand",
+        "present": false
+      },
+      {
+        "feature_index": 575,
+        "word": "movies",
+        "present": true
+      }
+    ],
+    "prediction": 1,
+    "n_samples": 1,
+    "spam_count": 1,
+    "spam_fraction": 1.0
+  },
+  {
+    "conditions": [
+      {
+        "feature_index": 283,
+        "word": "enron",
+        "present": false
+      },
+      {
+        "feature_index": 412,
+        "word": "http",
+        "present": false
+      },
+      {
+        "feature_index": 882,
+        "word": "thanks",
+        "present": true
+      },
+      {
+        "feature_index": 457,
+        "word": "investment",
+        "present": false
+      },
+      {
+        "feature_index": 76,
+        "word": "atleast",
+        "present": false
+      },
+      {
+        "feature_index": 385,
+        "word": "hello",
+        "present": false
+      },
+      {
+        "feature_index": 721,
+        "word": "quality",
+        "present": false
+      },
+      {
+        "feature_index": 109,
+        "word": "brand",
+        "present": true
+      }
+    ],
+    "prediction": 1,
+    "n_samples": 1,
+    "spam_count": 1,
+    "spam_fraction": 1.0
+  },
+  {
+    "conditions": [
+      {
+        "feature_index": 283,
+        "word": "enron",
+        "present": false
+      },
+      {
+        "feature_index": 412,
+        "word": "http",
+        "present": false
+      },
+      {
+        "feature_index": 882,
+        "word": "thanks",
+        "present": true
+      },
+      {
+        "feature_index": 457,
+        "word": "investment",
+        "present": false
+      },
+      {
+        "feature_index": 76,
+        "word": "atleast",
+        "present": false
+      },
+      {
+        "feature_index": 385,
+        "word": "hello",
+        "present": false
+      },
+      {
+        "feature_index": 721,
+        "word": "quality",
+        "present": true
+      }
+    ],
+    "prediction": 1,
+    "n_samples": 3,
+    "spam_count": 2,
+    "spam_fraction": 0.6666666666666666
+  },
+  {
+    "conditions": [
+      {
+        "feature_index": 283,
+        "word": "enron",
+        "present": false
+      },
+      {
+        "feature_index": 412,
+        "word": "http",
+        "present": false
+      },
+      {
+        "feature_index": 882,
+        "word": "thanks",
+        "present": true
+      },
+      {
+        "feature_index": 457,
+        "word": "investment",
+        "present": false
+      },
+      {
+        "feature_index": 76,
+        "word": "atleast",
+        "present": false
+      },
+      {
+        "feature_index": 385,
+        "word": "hello",
+        "present": true
+      }
+    ],
+    "prediction": 1,
+    "n_samples": 6,
+    "spam_count": 4,
+    "spam_fraction": 0.6666666666666666
+  },
+  {
+    "conditions": [
+      {
+        "feature_index": 283,
+        "word": "enron",
+        "present": false
+      },
+      {
+        "feature_index": 412,
+        "word": "http",
+        "present": false
+      },
+      {
+        "feature_index": 882,
+        "word": "thanks",
+        "present": true
+      },
+      {
+        "feature_index": 457,
+        "word": "investment",
+        "present": false
+      },
+      {
+        "feature_index": 76,
+        "word": "atleast",
+        "present": true
+      }
+    ],
+    "prediction": 1,
+    "n_samples": 4,
+    "spam_count": 4,
+    "spam_fraction": 1.0
+  },
+  {
+    "conditions": [
+      {
+        "feature_index": 283,
+        "word": "enron",
+        "present": false
+      },
+      {
+        "feature_index": 412,
+        "word": "http",
+        "present": false
+      },
+      {
+        "feature_index": 882,
+        "word": "thanks",
+        "present": true
+      },
+      {
+        "feature_index": 457,
+        "word": "investment",
+        "present": true
+      }
+    ],
+    "prediction": 1,
+    "n_samples": 14,
+    "spam_count": 14,
+    "spam_fraction": 1.0
+  },
+  {
+    "conditions": [
+      {
+        "feature_index": 283,
+        "word": "enron",
+        "present": false
+      },
+      {
+        "feature_index": 412,
+        "word": "http",
+        "present": true
+      },
+      {
+        "feature_index": 211,
+        "word": "daren",
+        "present": false
+      },
+      {
+        "feature_index": 402,
+        "word": "houston",
+        "present": false
+      },
+      {
+        "feature_index": 344,
+        "word": "friday",
+        "present": false
+      },
+      {
+        "feature_index": 700,
+        "word": "private",
+        "present": false
+      },
+      {
+        "feature_index": 341,
+        "word": "forwarded",
+        "present": false
+      },
+      {
+        "feature_index": 352,
+        "word": "fw",
+        "present": false
+      },
+      {
+        "feature_index": 32,
+        "word": "agree",
+        "present": false
+      },
+      {
+        "feature_index": 879,
+        "word": "texas",
+        "present": false
+      },
+      {
+        "feature_index": 911,
+        "word": "tx",
+        "present": false
+      },
+      {
+        "feature_index": 664,
+        "word": "photo",
+        "present": false
+      },
+      {
+        "feature_index": 900,
+        "word": "top",
+        "present": false
+      },
+      {
+        "feature_index": 638,
+        "word": "own",
+        "present": false
+      }
+    ],
+    "prediction": 1,
+    "n_samples": 235,
+    "spam_count": 235,
+    "spam_fraction": 1.0
+  },
+  {
+    "conditions": [
+      {
+        "feature_index": 283,
+        "word": "enron",
+        "present": false
+      },
+      {
+        "feature_index": 412,
+        "word": "http",
+        "present": true
+      },
+      {
+        "feature_index": 211,
+        "word": "daren",
+        "present": false
+      },
+      {
+        "feature_index": 402,
+        "word": "houston",
+        "present": false
+      },
+      {
+        "feature_index": 344,
+        "word": "friday",
+        "present": false
+      },
+      {
+        "feature_index": 700,
+        "word": "private",
+        "present": false
+      },
+      {
+        "feature_index": 341,
+        "word": "forwarded",
+        "present": false
+      },
+      {
+        "feature_index": 352,
+        "word": "fw",
+        "present": false
+      },
+      {
+        "feature_index": 32,
+        "word": "agree",
+        "present": false
+      },
+      {
+        "feature_index": 879,
+        "word": "texas",
+        "present": false
+      },
+      {
+        "feature_index": 911,
+        "word": "tx",
+        "present": false
+      },
+      {
+        "feature_index": 664,
+        "word": "photo",
+        "present": false
+      },
+      {
+        "feature_index": 900,
+        "word": "top",
+        "present": false
+      },
+      {
+        "feature_index": 638,
+        "word": "own",
+        "present": true
+      },
+      {
+        "feature_index": 839,
+        "word": "specialnumber",
+        "present": false
+      }
+    ],
+    "prediction": 0,
+    "n_samples": 1,
+    "spam_count": 0,
+    "spam_fraction": 0.0
+  },
+  {
+    "conditions": [
+      {
+        "feature_index": 283,
+        "word": "enron",
+        "present": false
+      },
+      {
+        "feature_index": 412,
+        "word": "http",
+        "present": true
+      },
+      {
+        "feature_index": 211,
+        "word": "daren",
+        "present": false
+      },
+      {
+        "feature_index": 402,
+        "word": "houston",
+        "present": false
+      },
+      {
+        "feature_index": 344,
+        "word": "friday",
+        "present": false
+      },
+      {
+        "feature_index": 700,
+        "word": "private",
+        "present": false
+      },
+      {
+        "feature_index": 341,
+        "word": "forwarded",
+        "present": false
+      },
+      {
+        "feature_index": 352,
+        "word": "fw",
+        "present": false
+      },
+      {
+        "feature_index": 32,
+        "word": "agree",
+        "present": false
+      },
+      {
+        "feature_index": 879,
+        "word": "texas",
+        "present": false
+      },
+      {
+        "feature_index": 911,
+        "word": "tx",
+        "present": false
+      },
+      {
+        "feature_index": 664,
+        "word": "photo",
+        "present": false
+      },
+      {
+        "feature_index": 900,
+        "word": "top",
+        "present": false
+      },
+      {
+        "feature_index": 638,
+        "word": "own",
+        "present": true
+      },
+      {
+        "feature_index": 839,
+        "word": "specialnumber",
+        "present": true
+      }
+    ],
+    "prediction": 1,
+    "n_samples": 9,
+    "spam_count": 9,
+    "spam_fraction": 1.0
+  },
+  {
+    "conditions": [
+      {
+        "feature_index": 283,
+        "word": "enron",
+        "present": false
+      },
+      {
+        "feature_index": 412,
+        "word": "http",
+        "present": true
+      },
+      {
+        "feature_index": 211,
+        "word": "daren",
+        "present": false
+      },
+      {
+        "feature_index": 402,
+        "word": "houston",
+        "present": false
+      },
+      {
+        "feature_index": 344,
+        "word": "friday",
+        "present": false
+      },
+      {
+        "feature_index": 700,
+        "word": "private",
+        "present": false
+      },
+      {
+        "feature_index": 341,
+        "word": "forwarded",
+        "present": false
+      },
+      {
+        "feature_index": 352,
+        "word": "fw",
+        "present": false
+      },
+      {
+        "feature_index": 32,
+        "word": "agree",
+        "present": false
+      },
+      {
+        "feature_index": 879,
+        "word": "texas",
+        "present": false
+      },
+      {
+        "feature_index": 911,
+        "word": "tx",
+        "present": false
+      },
+      {
+        "feature_index": 664,
+        "word": "photo",
+        "present": false
+      },
+      {
+        "feature_index": 900,
+        "word": "top",
+        "present": true
+      },
+      {
+        "feature_index": 882,
+        "word": "thanks",
+        "present": false
+      }
+    ],
+    "prediction": 1,
+    "n_samples": 10,
+    "spam_count": 10,
+    "spam_fraction": 1.0
+  },
+  {
+    "conditions": [
+      {
+        "feature_index": 283,
+        "word": "enron",
+        "present": false
+      },
+      {
+        "feature_index": 412,
+        "word": "http",
+        "present": true
+      },
+      {
+        "feature_index": 211,
+        "word": "daren",
+        "present": false
+      },
+      {
+        "feature_index": 402,
+        "word": "houston",
+        "present": false
+      },
+      {
+        "feature_index": 344,
+        "word": "friday",
+        "present": false
+      },
+      {
+        "feature_index": 700,
+        "word": "private",
+        "present": false
+      },
+      {
+        "feature_index": 341,
+        "word": "forwarded",
+        "present": false
+      },
+      {
+        "feature_index": 352,
+        "word": "fw",
+        "present": false
+      },
+      {
+        "feature_index": 32,
+        "word": "agree",
+        "present": false
+      },
+      {
+        "feature_index": 879,
+        "word": "texas",
+        "present": false
+      },
+      {
+        "feature_index": 911,
+        "word": "tx",
+        "present": false
+      },
+      {
+        "feature_index": 664,
+        "word": "photo",
+        "present": false
+      },
+      {
+        "feature_index": 900,
+        "word": "top",
+        "present": true
+      },
+      {
+        "feature_index": 882,
+        "word": "thanks",
+        "present": true
+      }
+    ],
+    "prediction": 0,
+    "n_samples": 2,
+    "spam_count": 0,
+    "spam_fraction": 0.0
+  },
+  {
+    "conditions": [
+      {
+        "feature_index": 283,
+        "word": "enron",
+        "present": false
+      },
+      {
+        "feature_index": 412,
+        "word": "http",
+        "present": true
+      },
+      {
+        "feature_index": 211,
+        "word": "daren",
+        "present": false
+      },
+      {
+        "feature_index": 402,
+        "word": "houston",
+        "present": false
+      },
+      {
+        "feature_index": 344,
+        "word": "friday",
+        "present": false
+      },
+      {
+        "feature_index": 700,
+        "word": "private",
+        "present": false
+      },
+      {
+        "feature_index": 341,
+        "word": "forwarded",
+        "present": false
+      },
+      {
+        "feature_index": 352,
+        "word": "fw",
+        "present": false
+      },
+      {
+        "feature_index": 32,
+        "word": "agree",
+        "present": false
+      },
+      {
+        "feature_index": 879,
+        "word": "texas",
+        "present": false
+      },
+      {
+        "feature_index": 911,
+        "word": "tx",
+        "present": false
+      },
+      {
+        "feature_index": 664,
+        "word": "photo",
+        "present": true
+      }
+    ],
+    "prediction": 0,
+    "n_samples": 2,
+    "spam_count": 1,
+    "spam_fraction": 0.5
+  },
+  {
+    "conditions": [
+      {
+        "feature_index": 283,
+        "word": "enron",
+        "present": false
+      },
+      {
+        "feature_index": 412,
+        "word": "http",
+        "present": true
+      },
+      {
+        "feature_index": 211,
+        "word": "daren",
+        "present": false
+      },
+      {
+        "feature_index": 402,
+        "word": "houston",
+        "present": false
+      },
+      {
+        "feature_index": 344,
+        "word": "friday",
+        "present": false
+      },
+      {
+        "feature_index": 700,
+        "word": "private",
+        "present": false
+      },
+      {
+        "feature_index": 341,
+        "word": "forwarded",
+        "present": false
+      },
+      {
+        "feature_index": 352,
+        "word": "fw",
+        "present": false
+      },
+      {
+        "feature_index": 32,
+        "word": "agree",
+        "present": false
+      },
+      {
+        "feature_index": 879,
+        "word": "texas",
+        "present": false
+      },
+      {
+        "feature_index": 911,
+        "word": "tx",
+        "present": true
+      }
+    ],
+    "prediction": 1,
+    "n_samples": 5,
+    "spam_count": 3,
+    "spam_fraction": 0.6
+  },
+  {
+    "conditions": [
+      {
+        "feature_index": 283,
+        "word": "enron",
+        "present": false
+      },
+      {
+        "feature_index": 412,
+        "word": "http",
+        "present": true
+      },
+      {
+        "feature_index": 211,
+        "word": "daren",
+        "present": false
+      },
+      {
+        "feature_index": 402,
+        "word": "houston",
+        "present": false
+      },
+      {
+        "feature_index": 344,
+        "word": "friday",
+        "present": false
+      },
+      {
+        "feature_index": 700,
+        "word": "private",
+        "present": false
+      },
+      {
+        "feature_index": 341,
+        "word": "forwarded",
+        "present": false
+      },
+      {
+        "feature_index": 352,
+        "word": "fw",
+        "present": false
+      },
+      {
+        "feature_index": 32,
+        "word": "agree",
+        "present": false
+      },
+      {
+        "feature_index": 879,
+        "word": "texas",
+        "present": true
+      }
+    ],
+    "prediction": 0,
+    "n_samples": 1,
+    "spam_count": 0,
+    "spam_fraction": 0.0
+  },
+  {
+    "conditions": [
+      {
+        "feature_index": 283,
+        "word": "enron",
+        "present": false
+      },
+      {
+        "feature_index": 412,
+        "word": "http",
+        "present": true
+      },
+      {
+        "feature_index": 211,
+        "word": "daren",
+        "present": false
+      },
+      {
+        "feature_index": 402,
+        "word": "houston",
+        "present": false
+      },
+      {
+        "feature_index": 344,
+        "word": "friday",
+        "present": false
+      },
+      {
+        "feature_index": 700,
+        "word": "private",
+        "present": false
+      },
+      {
+        "feature_index": 341,
+        "word": "forwarded",
+        "present": false
+      },
+      {
+        "feature_index": 352,
+        "word": "fw",
+        "present": false
+      },
+      {
+        "feature_index": 32,
+        "word": "agree",
+        "present": true
+      }
+    ],
+    "prediction": 0,
+    "n_samples": 1,
+    "spam_count": 0,
+    "spam_fraction": 0.0
+  },
+  {
+    "conditions": [
+      {
+        "feature_index": 283,
+        "word": "enron",
+        "present": false
+      },
+      {
+        "feature_index": 412,
+        "word": "http",
+        "present": true
+      },
+      {
+        "feature_index": 211,
+        "word": "daren",
+        "present": false
+      },
+      {
+        "feature_index": 402,
+        "word": "houston",
+        "present": false
+      },
+      {
+        "feature_index": 344,
+        "word": "friday",
+        "present": false
+      },
+      {
+        "feature_index": 700,
+        "word": "private",
+        "present": false
+      },
+      {
+        "feature_index": 341,
+        "word": "forwarded",
+        "present": false
+      },
+      {
+        "feature_index": 352,
+        "word": "fw",
+        "present": true
+      }
+    ],
+    "prediction": 0,
+    "n_samples": 3,
+    "spam_count": 1,
+    "spam_fraction": 0.3333333333333333
+  },
+  {
+    "conditions": [
+      {
+        "feature_index": 283,
+        "word": "enron",
+        "present": false
+      },
+      {
+        "feature_index": 412,
+        "word": "http",
+        "present": true
+      },
+      {
+        "feature_index": 211,
+        "word": "daren",
+        "present": false
+      },
+      {
+        "feature_index": 402,
+        "word": "houston",
+        "present": false
+      },
+      {
+        "feature_index": 344,
+        "word": "friday",
+        "present": false
+      },
+      {
+        "feature_index": 700,
+        "word": "private",
+        "present": false
+      },
+      {
+        "feature_index": 341,
+        "word": "forwarded",
+        "present": true
+      }
+    ],
+    "prediction": 0,
+    "n_samples": 3,
+    "spam_count": 1,
+    "spam_fraction": 0.3333333333333333
+  },
+  {
+    "conditions": [
+      {
+        "feature_index": 283,
+        "word": "enron",
+        "present": false
+      },
+      {
+        "feature_index": 412,
+        "word": "http",
+        "present": true
+      },
+      {
+        "feature_index": 211,
+        "word": "daren",
+        "present": false
+      },
+      {
+        "feature_index": 402,
+        "word": "houston",
+        "present": false
+      },
+      {
+        "feature_index": 344,
+        "word": "friday",
+        "present": false
+      },
+      {
+        "feature_index": 700,
+        "word": "private",
+        "present": true
+      },
+      {
+        "feature_index": 273,
+        "word": "email",
+        "present": false
+      }
+    ],
+    "prediction": 1,
+    "n_samples": 14,
+    "spam_count": 14,
+    "spam_fraction": 1.0
+  },
+  {
+    "conditions": [
+      {
+        "feature_index": 283,
+        "word": "enron",
+        "present": false
+      },
+      {
+        "feature_index": 412,
+        "word": "http",
+        "present": true
+      },
+      {
+        "feature_index": 211,
+        "word": "daren",
+        "present": false
+      },
+      {
+        "feature_index": 402,
+        "word": "houston",
+        "present": false
+      },
+      {
+        "feature_index": 344,
+        "word": "friday",
+        "present": false
+      },
+      {
+        "feature_index": 700,
+        "word": "private",
+        "present": true
+      },
+      {
+        "feature_index": 273,
+        "word": "email",
+        "present": true
+      },
+      {
+        "feature_index": 454,
+        "word": "internet",
+        "present": false
+      }
+    ],
+    "prediction": 0,
+    "n_samples": 8,
+    "spam_count": 0,
+    "spam_fraction": 0.0
+  },
+  {
+    "conditions": [
+      {
+        "feature_index": 283,
+        "word": "enron",
+        "present": false
+      },
+      {
+        "feature_index": 412,
+        "word": "http",
+        "present": true
+      },
+      {
+        "feature_index": 211,
+        "word": "daren",
+        "present": false
+      },
+      {
+        "feature_index": 402,
+        "word": "houston",
+        "present": false
+      },
+      {
+        "feature_index": 344,
+        "word": "friday",
+        "present": false
+      },
+      {
+        "feature_index": 700,
+        "word": "private",
+        "present": true
+      },
+      {
+        "feature_index": 273,
+        "word": "email",
+        "present": true
+      },
+      {
+        "feature_index": 454,
+        "word": "internet",
+        "present": true
+      }
+    ],
+    "prediction": 1,
+    "n_samples": 2,
+    "spam_count": 2,
+    "spam_fraction": 1.0
+  },
+  {
+    "conditions": [
+      {
+        "feature_index": 283,
+        "word": "enron",
+        "present": false
+      },
+      {
+        "feature_index": 412,
+        "word": "http",
+        "present": true
+      },
+      {
+        "feature_index": 211,
+        "word": "daren",
+        "present": false
+      },
+      {
+        "feature_index": 402,
+        "word": "houston",
+        "present": false
+      },
+      {
+        "feature_index": 344,
+        "word": "friday",
+        "present": true
+      }
+    ],
+    "prediction": 0,
+    "n_samples": 6,
+    "spam_count": 1,
+    "spam_fraction": 0.16666666666666666
+  },
+  {
+    "conditions": [
+      {
+        "feature_index": 283,
+        "word": "enron",
+        "present": false
+      },
+      {
+        "feature_index": 412,
+        "word": "http",
+        "present": true
+      },
+      {
+        "feature_index": 211,
+        "word": "daren",
+        "present": false
+      },
+      {
+        "feature_index": 402,
+        "word": "houston",
+        "present": true
+      }
+    ],
+    "prediction": 0,
+    "n_samples": 5,
+    "spam_count": 0,
+    "spam_fraction": 0.0
+  },
+  {
+    "conditions": [
+      {
+        "feature_index": 283,
+        "word": "enron",
+        "present": false
+      },
+      {
+        "feature_index": 412,
+        "word": "http",
+        "present": true
+      },
+      {
+        "feature_index": 211,
+        "word": "daren",
+        "present": true
+      }
+    ],
+    "prediction": 0,
+    "n_samples": 13,
+    "spam_count": 0,
+    "spam_fraction": 0.0
+  },
+  {
+    "conditions": [
+      {
+        "feature_index": 283,
+        "word": "enron",
+        "present": true
+      }
+    ],
+    "prediction": 0,
+    "n_samples": 847,
+    "spam_count": 0,
+    "spam_fraction": 0.0
+  }
+]

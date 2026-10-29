@@ -1,0 +1,74 @@
+{
+  "seed": 42,
+  "dataset_fingerprint": "4335af17eef51c98b15073d7b93c8fc1e64174b436e077c9a94163b0c3669051",
+  "enron": {
+    "source": "enron",
+    "raw_rows": 5171,
+    "raw_labels": {
+      "0": 3672,
+      "1": 1499
+    },
+    "empty_or_no_tokens_removed": 0,
+    "duplicate_rows_removed": 277,
+    "conflicting_rows_removed": 0,
+    "conflicting_groups": 0,
+    "kept_rows": 4894,
+    "kept_labels": {
+      "0": 3432,
+      "1": 1462
+    },
+    "raw_sha256": "65386c0361eb99c0be3835d6488cbb9dda2ae0575eb37d2ab543c52a2c7619cb",
+    "accounting_valid": true,
+    "dedup_policy": "NFKC + casefold + whitespace normalization; one per group; conflicts removed",
+    "limitation": "No fuzzy near-duplicate, thread, sender or chronological split"
+  },
+  "spamassassin": {
+    "source": "spamassassin",
+    "raw_rows": 6046,
+    "raw_labels": {
+      "1": 1896,
+      "0": 4150
+    },
+    "empty_or_no_tokens_removed": 5,
+    "duplicate_rows_removed": 241,
+    "conflicting_rows_removed": 533,
+    "conflicting_groups": 1,
+    "kept_rows": 5267,
+    "kept_labels": {
+      "0": 3912,
+      "1": 1355
+    },
+    "raw_sha256": "f4ed99c846d34ba351b0fba16724700f9f2ac6371ec0c97b86bfb9de738317db",
+    "accounting_valid": true,
+    "dedup_policy": "NFKC + casefold + whitespace normalization; one per group; conflicts removed",
+    "limitation": "No fuzzy near-duplicate, thread, sender or chronological split",
+    "overlap_with_enron_removed": 0,
+    "final_rows": 5267,
+    "final_labels": {
+      "0": 3912,
+      "1": 1355
+    }
+  },
+  "splits": {
+    "train": {
+      "total": 2936,
+      "ham": 2059,
+      "spam": 877
+    },
+    "validation": {
+      "total": 979,
+      "ham": 686,
+      "spam": 293
+    },
+    "test": {
+      "total": 979,
+      "ham": 687,
+      "spam": 292
+    },
+    "external_test": {
+      "total": 5267,
+      "ham": 3912,
+      "spam": 1355
+    }
+  }
+}

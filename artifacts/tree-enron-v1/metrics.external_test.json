@@ -1,0 +1,19 @@
+{
+  "split": "external_test",
+  "metrics": {
+    "n_samples": 5267,
+    "tn": 906,
+    "fp": 3006,
+    "fn": 125,
+    "tp": 1230,
+    "accuracy": 0.4055439529143725,
+    "precision_spam": 0.29036827195467424,
+    "recall_spam": 0.9077490774907749,
+    "f1_spam": 0.4399928456447863,
+    "roc_auc": 0.5778451580528076,
+    "average_precision": 0.29378720490303945
+  },
+  "transform_seconds": 3.0768470999319106,
+  "predict_and_probability_seconds": 0.028970699990168214,
+  "zero_selected_features": 19
+}

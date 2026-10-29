@@ -2,7 +2,7 @@
 
 ## Phạm vi đã triển khai
 
-Package `spam_detector`, cấu hình baseline, interface mô hình, Decision Tree tự viết, bundle JSON và CLI cho nhánh cây đã chạy được. NB/LR/SVM, xử lý email, vector hóa, chia tập thật, ensemble và Streamlit vẫn theo phân công nhóm; không có model giả thay thế.
+Package `spam_detector`, cấu hình baseline, interface mô hình, Decision Tree tự viết, bundle JSON và CLI cho nhánh cây đã chạy được. Đã bổ sung data.py/preprocessing.py/features.py, pipeline train-enron và inference.py để train/dự đoán email thật. NB/LR/SVM, ensemble đủ bốn mô hình và Streamlit toàn nhóm vẫn theo phân công; không có model giả thay thế.
 
 `tree_workflow.py` là đường chạy độc lập phục vụ nghiệm thu phần Doanh. Khi Dương hoàn thiện evaluator/training chung, dùng lại `DecisionTreeClassifier`, `TreeBundle` và giao thức đầu vào; hợp nhất hàm metrics vào evaluator chung thay vì duy trì hai cách tính.
 
@@ -62,6 +62,8 @@ np.savez_compressed(
 Đánh giá test/external dùng các khóa tương ứng `X_test`, `y_test`, `ids_test`, `groups_test` hoặc hậu tố `external_test`, kèm feature_names y hệt. Có thể đặt trong archive riêng; test phải được transform bằng bộ biến đổi của train, không chọn lại từ bằng nhãn test.
 
 CLI kiểm tra ID/nhóm trùng, shape và tên cột; không thể tự chứng minh ma trận do thành viên cung cấp đã được vector hóa đúng. Người tạo archive phải lưu bộ biến đổi, cấu hình và nguồn dữ liệu theo thiết kế chung. File JSON cây chỉ chứa state cây + tên từ + metadata; chưa phải pipeline văn bản hoàn chỉnh.
+
+Luồng `train-enron` hiện đã tự tạo archive từ CSV bằng pipeline học trên train. Release văn bản ghép `tree.json`, `features.json` và `release.json` có checksum; loader `TextPredictor` kiểm tra phiên bản tiền xử lý và thứ tự cột. Bộ biến đổi nhị phân lưu bằng JSON chứa từ đã chọn và cấu hình thay cho joblib: transform từ vựng cố định vẫn cho kết quả tương đương, dễ kiểm tra và không cần pickle. Khi các thành viên ghép module dùng chung, giữ hợp đồng này hoặc chuyển phiên bản format rõ ràng.
 
 ## Lưu và đọc mô hình
 

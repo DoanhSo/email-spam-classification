@@ -1,0 +1,14 @@
+# Selected from 18 candidates using validation F1, then Precision/depth/nodes.
+# Use only with the corresponding train-fitted K=1000 feature pipeline.
+seed: 42
+data:
+  split_ratios: [0.60, 0.20, 0.20]
+features:
+  tree:
+    representation: binary
+    select_k: 1000
+models:
+  tree:
+    max_depth: 15
+    min_samples_split: 10
+    min_samples_leaf: 1

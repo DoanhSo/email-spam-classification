@@ -1,0 +1,19 @@
+{
+  "split": "test",
+  "metrics": {
+    "n_samples": 979,
+    "tn": 626,
+    "fp": 61,
+    "fn": 11,
+    "tp": 281,
+    "accuracy": 0.9264555669050051,
+    "precision_spam": 0.8216374269005848,
+    "recall_spam": 0.9623287671232876,
+    "f1_spam": 0.886435331230284,
+    "roc_auc": 0.9464118362545113,
+    "average_precision": 0.8369360945216242
+  },
+  "transform_seconds": 0.2711825999431312,
+  "predict_and_probability_seconds": 0.0029817000031471252,
+  "zero_selected_features": 5
+}

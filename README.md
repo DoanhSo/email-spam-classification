@@ -16,7 +16,7 @@ Bài tập lớn môn Khai phá dữ liệu: phát hiện email spam tiếng Anh
 
 ## Trạng thái
 
-Đã triển khai khung package Python, cấu hình, interface mô hình, Decision Tree tự viết bằng NumPy, lưu/tải bundle JSON, xuất luật, thử tham số và benchmark sklearn tùy chọn. Có kiểm thử và CI. NB/LR/SVM, pipeline email thật, ensemble và giao diện vẫn chờ triển khai theo phân công.
+Đã triển khai và train Decision Tree tự viết bằng NumPy trên Enron thật: tải dữ liệu Kaggle, kiểm tra/khử trùng, chia tập, binary/Chi-square, thử 18 cấu hình, CV 5-fold, đánh giá test và SpamAssassin, lưu release và dự đoán từ văn bản. Có kiểm thử và CI. NB/LR/SVM, ensemble đủ bốn mô hình và giao diện toàn nhóm vẫn theo phân công.
 
 Các lệnh toàn dự án trong bản thiết kế là đích tích hợp. Những lệnh đã chạy được cho nhánh Decision Tree được liệt kê dưới đây.
 
@@ -77,3 +77,31 @@ Archive phải chứa ma trận 0/1, nhãn, tên đặc trưng, ID và nhóm the
 - [Kế hoạch triển khai và train trên Enron/SpamAssassin](docs/KE_HOACH_TRAIN_ENRON.md).
 
 Mã thuật toán chính: `src/spam_detector/models/decision_tree.py`. Các module mô hình không gọi sklearn. Phần import cây sklearn chỉ nằm trong nhánh benchmark tùy chọn của `tree_workflow.py` và các kiểm thử đối chiếu.
+
+## Huấn luyện toàn quy trình bằng dữ liệu thật
+
+```powershell
+.venv\Scripts\python -m pip install -e ".[dev,benchmark,training]"
+.venv\Scripts\python -m spam_detector.cli train-enron --output runs/enron-my-run --raw-dir data/raw
+```
+
+Lệnh tự tải hai CSV công khai từ Kaggle khi chưa có cache, ghi checksum, làm sạch/chia tập, học đặc trưng trên train, train/tune, CV với pipeline mới trong từng fold, khóa cấu hình rồi đánh giá. Mỗi lần chạy dùng thư mục output mới. Raw/records/dự đoán có nội dung email nằm cục bộ và được ignore. Metadata nguồn nằm trong `provenance.json`; seed, cấu hình khảo sát và checksum mã nguồn nằm trong `run_manifest.json`.
+
+Kết quả đã chạy: Enron sạch 4.894 email, chia 2.936 train / 979 validation / 979 test. Chọn K=1.000, max_depth=15, min_samples_split=10, min_samples_leaf=1 bằng validation. Test Enron: Precision spam 82,16%, Recall 96,23%, F1 88,64%. SpamAssassin sạch 5.267 email: Precision 29,04%, Recall 90,77%, F1 44,00%; chặn nhầm 3.006/3.912 ham. Đây là hạn chế tổng quát hóa rõ rệt, chưa phù hợp để tự động chặn thư thật ngoài miền Enron.
+
+- [Báo cáo và hình kết quả thật](reports/enron-v1/REPORT.md).
+- [Summary máy đọc](reports/enron-v1/summary.json).
+- [Release cây cùng bộ biến đổi](artifacts/tree-enron-v1/release.json).
+- [Dự đoán validation bàn giao ensemble](reports/enron-v1/handoff/tree.validation.csv).
+
+Chạy ngay mô hình đã train trong repo:
+
+```powershell
+.venv\Scripts\python -m spam_detector.cli predict-text --release artifacts/tree-enron-v1 --text "Subject: meeting agenda. Please review the attached report."
+```
+
+Điểm `spam_fraction` là tỷ lệ lớp tại lá, không phải xác suất đã hiệu chuẩn. `path` giải thích các từ có/không dẫn đến dự đoán. Cây có thể học mạnh dấu hiệu đặc thù Enron như `enron`, `hpl`, tên người và thuật ngữ ngành; báo cáo giữ nguyên kết quả ngoài nguồn để phân tích hạn chế này.
+
+Các bước tách rời cũng có CLI: `prepare-enron --enron <csv> --external <csv> --output <new-dir>`, `build-tree-features --prepared <prepared-dir> --output <new-dir> --k 500`; `train-tree/tune-tree/evaluate-tree` tiếp tục nhận archive theo hợp đồng.
+
+Ngoại lệ có chủ đích với đầu ra sinh ra: repo giữ một release JSON nhỏ dưới `artifacts/` và snapshot báo cáo tổng hợp dưới `reports/enron-v1/` để nhóm dùng ngay. Không commit raw email, records đầy đủ hoặc các thư mục runs.

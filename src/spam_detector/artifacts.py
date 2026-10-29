@@ -30,7 +30,7 @@ def save_tree_bundle(
     encoded = json.dumps(payload, ensure_ascii=False, indent=2, allow_nan=False)
     destination = Path(path)
     destination.parent.mkdir(parents=True, exist_ok=True)
-    destination.write_text(encoded, encoding="utf-8")
+    destination.write_text(encoded, encoding="utf-8", newline="\n")
 
 
 def load_tree_bundle(path: str | Path) -> TreeBundle:

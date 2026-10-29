@@ -1,0 +1,38 @@
+{
+  "started_at_utc": "2026-10-29T13:01:52.320788+00:00",
+  "python": "3.12.14",
+  "seed": 42,
+  "source_sha256": {
+    "__init__.py": "f0f1e6f9b2334beaf7f5d44c05feefc2c48b151d2c9d48ee139fe646140c8b18",
+    "artifacts.py": "aed52b2bdea0c38e288235472d47c9c39be22988e90ff98093a27f21a2277922",
+    "cli.py": "009c13d0c7d18aecadb03ee8392a3f1e361b6118f17685ffff59e3c724d3b2a5",
+    "config.py": "ef7f81275e3a8571af64fba03b87151b538ee3dfcb461221b5daf74f09dcd048",
+    "data.py": "1561350ea51c1446baebf8cdb148d09f2262c60cb56648128cb93b34a65f7444",
+    "enron_training.py": "011427cb927f9302aecf4f275ce18902df3d17136f94dd0c5388d47913bd2a88",
+    "features.py": "58b4134ff4db9a4b42a4ef9bcf6130e2a21eaf16e0fb51b29be6ae301f3f7aef",
+    "inference.py": "81dc0a9cb1e7e615462162c4d6006edda16903705e544ef86269c46c406d3791",
+    "models/__init__.py": "bb15cee5c1569de020b739789228a598d13f24b4bd1c9a84d7d9c9707ec67e09",
+    "models/base.py": "14ebd8590169f5fe7518eed87339d7aa28d6c28174f9886869167eaa9ec06954",
+    "models/decision_tree.py": "1aabdde33325dfd4632b79a640378f38ac523feb705b9d0fb858d3475a0ab1c0",
+    "preprocessing.py": "c5f092cbb5aa8bf4714c53ab551a1e04b118d27aa5ea403b25054f6924d37422",
+    "tree_workflow.py": "6fa3f4220d12447eded860e9042c978f4c83644335dac18f93117760ee9ff227"
+  },
+  "selection": {
+    "k": [
+      500,
+      1000
+    ],
+    "max_depth": [
+      5,
+      10,
+      15
+    ],
+    "min_samples_leaf": [
+      1,
+      5,
+      10
+    ],
+    "min_samples_split": 10,
+    "objective": "validation_f1_then_precision_then_depth_then_nodes"
+  }
+}

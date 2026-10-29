@@ -1,5 +1,17 @@
 # Biên bản kiểm tra phần Decision Tree
 
+## Cập nhật kiểm tra pipeline email thật
+
+- Bộ kiểm thử hiện tại: **57 passed**, gồm reader/khử trùng, chia tập không phụ thuộc thứ tự, vocabulary không học từ validation, CV fit mới từng fold, release checksum, CSV email dài, chạy toàn quy trình trên fixture không cần mạng và tải release đã công bố để dự đoán văn bản.
+- Đã chạy train-enron trên Kaggle thật hai lần, cùng seed 42 và raw cache có checksum. Xác nhận sạch dữ liệu, ID split, K/tham số được chọn, state cây, tất cả dự đoán/metrics và CV mean/std giống nhau; thời gian có thể khác. Xem reports/enron-v1/reproducibility.json.
+- Đã đọc lại release, đối chiếu dự đoán từ văn bản và từ ma trận test/external, kiểm tra hình xuất ra. Nguồn kết quả thật là reports/enron-v1/summary.json; báo cáo giả lập bên dưới chỉ nghiệm thu thuật toán.
+- K=1000, max_depth=15, min_samples_leaf=1: Enron test F1=88,64%; external F1=44,00%. Benchmark sklearn trên cùng validation F1=88,995%, so với tự viết 88,462%; tỷ lệ dự đoán khớp 99,489%.
+- Source checksum/seed/Python nằm trong reports/enron-v1/run_manifest.json. Các phiên bản đã dùng được cập nhật trong requirements-tested-py312.txt.
+- `.gitattributes` giữ text ở LF trên các máy để Git không đổi byte JSON làm sai checksum release; ảnh và ZIP giữ dạng binary.
+- Sau khi train, bước đóng gói chuẩn hóa JSON của release sang LF và tính lại checksum để khớp byte được lưu trong Git. State cây, tên từ và dự đoán không thay đổi. JSON writer cũng được sửa dùng LF cho các lần train sau; source checksum trong run_manifest phản ánh đúng mã tại thời điểm train, trước sửa đổi định dạng ghi file này.
+
+Các mục bên dưới lưu lại biên bản đợt đầu với dữ liệu giả lập; số 48 tests là kết quả lịch sử, không phải số kiểm thử mới nhất.
+
 Ngày chạy: 29/10/2026, Windows, Python 3.12.14. Phiên bản dependencies đã dùng được ghi trong `requirements-tested-py312.txt`. Đây là môi trường đã kiểm tra cục bộ; CI trên GitHub có trạng thái riêng.
 
 ## Kết quả đã chạy

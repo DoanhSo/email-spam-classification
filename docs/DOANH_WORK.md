@@ -30,9 +30,13 @@
 - Tuần 3: thử cấu hình, giao dự đoán validation, chạy đánh giá cuối và phân tích lỗi.
 - Tuần 4: hoàn thiện báo cáo/slide, rà soát tích hợp và đóng gói.
 
-## Đang chờ dữ liệu thực tế
+## Đã nghiệm thu dữ liệu và mô hình thực tế
 
-Workspace chưa có Enron/SpamAssassin hoặc bộ đặc trưng đã học trên train. Vì vậy chưa có metrics email thực tế, đánh giá ngoài nguồn, kết quả CV hoặc tích hợp đủ bốn mô hình. Các số liệu demo hiện tại chỉ nghiệm thu thuật toán/luồng chạy, không dùng làm kết quả thực nghiệm của đề tài.
+Đã tải và lưu checksum Enron/SpamAssassin, khử trùng/nhãn mâu thuẫn, đóng băng split, tạo binary/Chi-square học trên train, train/tune 18 ứng viên và CV mới pipeline trong từng fold. Đã đánh giá test và ngoài nguồn, xuất luật/FP/FN cục bộ, đóng gói predictor văn bản và xuất dự đoán validation bàn giao Dương.
+
+Release: `artifacts/tree-enron-v1/`. Báo cáo: `reports/enron-v1/REPORT.md`. Enron test F1=88,64%; SpamAssassin F1=44,00% và nhiều FP, nên kết quả ngoài nguồn là hạn chế chính cần giải thích. Không chỉnh cấu hình theo external sau khi đánh giá.
+
+Phần còn lại ở cấp toàn nhóm là ghép ba mô hình của các thành viên, ensemble và giao diện chung. Đầu ra của Doanh đã sẵn sàng qua `TextPredictor` và CSV validation theo ID.
 
 ## Tiêu chí nghiệm thu tiếp theo
 

@@ -1,5 +1,7 @@
 # Kế hoạch triển khai và huấn luyện Decision Tree trên dữ liệu Kaggle
 
+**Cập nhật thực hiện:** Đã chạy toàn quy trình trên dữ liệu thật, gồm làm sạch, split, K=500/1.000, 18 ứng viên, CV, test/external, predictor văn bản và bàn giao validation. Xem `reports/enron-v1/REPORT.md`, `summary.json` và `artifacts/tree-enron-v1/`. Nội dung dưới đây giữ lại kế hoạch gốc; trạng thái triển khai mới nhất nằm trong README và báo cáo kết quả. Các CLI chuẩn bị/đặc trưng/dự đoán đã được bổ sung.
+
 ## 1. Mục tiêu và trạng thái hiện tại
 
 Triển khai luồng chạy được từ CSV email thật → kiểm tra/chia dữ liệu → tiền xử lý → đặc trưng nhị phân → Decision Tree tự viết → chọn tham số → đánh giá độc lập → dự đoán email mới.
