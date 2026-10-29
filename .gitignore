@@ -1,0 +1,34 @@
+# Local temporary files and PDF inspection output
+/tmp/
+/output/
+
+# Python environments and generated files
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+build/
+dist/
+.ipynb_checkpoints/
+
+# Local settings and credentials
+.env
+.env.*
+!.env.example
+.idea/
+.vscode/
+Thumbs.db
+.DS_Store
+
+# Downloaded data and generated training outputs
+/data/raw/
+/data/processed/
+/data/splits/
+/runs/
+/releases/
+*.log
