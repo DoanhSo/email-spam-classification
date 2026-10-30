@@ -75,6 +75,7 @@ Archive phải chứa ma trận 0/1, nhãn, tên đặc trưng, ID và nhóm the
 - [Lý thuyết, cài đặt và báo cáo Decision Tree](reports/decision_tree.md).
 - [Biên bản kiểm tra và phiên bản đã dùng](docs/verification.md).
 - [Kế hoạch triển khai và train trên Enron/SpamAssassin](docs/KE_HOACH_TRAIN_ENRON.md).
+- [Kế hoạch giao diện web kiểm tra email spam](docs/KE_HOACH_GIAO_DIEN_WEB.md).
 
 Mã thuật toán chính: `src/spam_detector/models/decision_tree.py`. Các module mô hình không gọi sklearn. Phần import cây sklearn chỉ nằm trong nhánh benchmark tùy chọn của `tree_workflow.py` và các kiểm thử đối chiếu.
 
