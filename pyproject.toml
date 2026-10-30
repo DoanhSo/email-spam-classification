@@ -13,6 +13,7 @@ dependencies = ["numpy>=1.26", "PyYAML>=6"]
 dev = ["pytest>=8"]
 benchmark = ["scikit-learn>=1.4"]
 training = ["scikit-learn>=1.4", "beautifulsoup4>=4.12", "matplotlib>=3.8"]
+web = ["streamlit>=1.66,<2", "scikit-learn>=1.4", "beautifulsoup4>=4.12"]
 
 [project.scripts]
 spam-detector = "spam_detector.cli:main"

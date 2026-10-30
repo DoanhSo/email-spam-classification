@@ -1,5 +1,15 @@
 # Biên bản kiểm tra phần Decision Tree
 
+## Cập nhật web ngày 30/10/2026
+
+- Tổng bộ kiểm thử: **74 passed**; thêm 17 service/AppTest tests cho web. Môi trường web kiểm tra cục bộ dùng Streamlit 1.66.1 và Python 3.12.14.
+- Có đối chiếu label, tỷ lệ lá và path của service web với TextPredictor/CLI trên cùng input/release; có kiểm tra model thiếu, lỗi runtime, score hỏng, input rỗng/dài, session, kết quả cũ, ví dụ và ensemble fixture.
+- Đã chạy HTTP server local, nhận HTTP 200; kiểm tra trình duyệt với viewport desktop 1440x1100 và mobile 390x844, không tràn ngang (documentWidth=viewport=390), không có console error/warning trong lần kiểm tra cuối.
+- Đã submit bằng form, xem nhãn ham từ email minh họa, mở path cây, kiểm tra điều hướng focus và đọc lại screenshot. Không dùng ví dụ này để đánh giá độ chính xác chung.
+- Browser QA phát hiện Streamlit tự render return object của biểu thức điều kiện; đã đổi sang if/else và bổ sung regression assertion để không xuất nội dung nội bộ lên UI.
+- Ảnh QA nằm ở output/playwright (ignore trong Git). Không thay đổi/training lại model hoặc checksum release cho thay đổi web.
+- Hướng dẫn và giới hạn thực tế: docs/WEB_USAGE.md. NB/LR/SVM thật và ensemble đủ bốn mô hình còn phụ thuộc bàn giao, fixture kiểm thử không được dùng làm output của ứng dụng.
+
 ## Cập nhật kiểm tra pipeline email thật
 
 - Bộ kiểm thử hiện tại: **57 passed**, gồm reader/khử trùng, chia tập không phụ thuộc thứ tự, vocabulary không học từ validation, CV fit mới từng fold, release checksum, CSV email dài, chạy toàn quy trình trên fixture không cần mạng và tải release đã công bố để dự đoán văn bản.

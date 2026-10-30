@@ -1,6 +1,7 @@
 # Local temporary files and PDF inspection output
 /tmp/
 /output/
+.playwright-cli/
 
 # Python environments and generated files
 .venv/

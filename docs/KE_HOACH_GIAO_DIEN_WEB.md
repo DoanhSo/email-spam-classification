@@ -2,6 +2,8 @@
 
 Ngày lập: 30/10/2026. Phạm vi: giao diện phục vụ demo môn Khai phá dữ liệu và tích hợp bốn mô hình của nhóm.
 
+**Cập nhật triển khai:** Đã có app/streamlit_app.py, configs/web.yaml, PredictionService, kiểm thử service/AppTest và bản web Decision Tree dùng release thật. Xem docs/WEB_USAGE.md để cài/chạy và ghép adapter mới. Các đoạn “chưa được lập trình” và lệnh mục tiêu phía dưới giữ lại bối cảnh bản kế hoạch; trạng thái mới nhất là README và WEB_USAGE. NB/LR/SVM/ensemble đầy đủ vẫn cần các release của thành viên.
+
 ## 1. Mục tiêu và phần có thể sử dụng ngay
 
 Người dùng nhập email tiếng Anh, chọn cách kiểm tra, bấm phân loại và xem dự đoán ham/spam. Kết quả giải thích mô hình đã dùng tín hiệu nào và cho phép so sánh các mô hình khi chúng đã được bàn giao.

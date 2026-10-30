@@ -76,6 +76,7 @@ Archive phải chứa ma trận 0/1, nhãn, tên đặc trưng, ID và nhóm the
 - [Biên bản kiểm tra và phiên bản đã dùng](docs/verification.md).
 - [Kế hoạch triển khai và train trên Enron/SpamAssassin](docs/KE_HOACH_TRAIN_ENRON.md).
 - [Kế hoạch giao diện web kiểm tra email spam](docs/KE_HOACH_GIAO_DIEN_WEB.md).
+- [Cách chạy web và bàn giao adapter mô hình](docs/WEB_USAGE.md).
 
 Mã thuật toán chính: `src/spam_detector/models/decision_tree.py`. Các module mô hình không gọi sklearn. Phần import cây sklearn chỉ nằm trong nhánh benchmark tùy chọn của `tree_workflow.py` và các kiểm thử đối chiếu.
 
@@ -106,3 +107,16 @@ Chạy ngay mô hình đã train trong repo:
 Các bước tách rời cũng có CLI: `prepare-enron --enron <csv> --external <csv> --output <new-dir>`, `build-tree-features --prepared <prepared-dir> --output <new-dir> --k 500`; `train-tree/tune-tree/evaluate-tree` tiếp tục nhận archive theo hợp đồng.
 
 Ngoại lệ có chủ đích với đầu ra sinh ra: repo giữ một release JSON nhỏ dưới `artifacts/` và snapshot báo cáo tổng hợp dưới `reports/enron-v1/` để nhóm dùng ngay. Không commit raw email, records đầy đủ hoặc các thư mục runs.
+
+## Giao diện web đã triển khai
+
+```powershell
+.venv\Scripts\python -m pip install -e ".[web]"
+.venv\Scripts\python -m streamlit run app/streamlit_app.py --server.address 127.0.0.1 --server.port 8501
+```
+
+Mở http://127.0.0.1:8501. Có Subject/body, ví dụ minh họa, dự đoán, đường đi cây, thông tin chất lượng, xóa nội dung và chế độ so sánh các mô hình sẵn sàng. Web dùng lại TextPredictor, không huấn luyện lại hoặc lưu body vào log mặc định. Predictor cache theo session, kiểm tra checksum release trước khi dùng.
+
+Hiện Decision Tree hoạt động; NB/LR/SVM hiển thị chờ bàn giao. Chế độ ensemble chỉ bật khi đủ bốn adapter/release và trọng số validation khớp fingerprint. [WEB_USAGE](docs/WEB_USAGE.md) mô tả cấu hình và cách tích hợp tiếp.
+
+Web đã được kiểm tra với Streamlit 1.66.1; tổng bộ kiểm thử hiện có 74 tests. Xem [biên bản kiểm tra](docs/verification.md) để phân biệt kiểm tra UI/pipeline và chất lượng mô hình ngoài nguồn.

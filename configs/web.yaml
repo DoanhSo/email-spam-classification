@@ -1,0 +1,21 @@
+max_characters: 100000
+default_model: tree
+models:
+  tree:
+    name: Decision Tree
+    adapter: tree
+    release: artifacts/tree-enron-v1
+  nb:
+    name: Naive Bayes
+    adapter: nb
+    release: null
+  lr:
+    name: Logistic Regression
+    adapter: lr
+    release: null
+  svm:
+    name: Linear SVM
+    adapter: svm
+    release: null
+# Enable only after all four real adapters/releases and validation weights exist.
+ensemble: null
