@@ -47,6 +47,21 @@ def main(argv: list[str] | None = None) -> int:
     text = sub.add_parser("predict-text")
     text.add_argument("--release", required=True)
     text.add_argument("--text", required=True)
+    export = sub.add_parser("export-arff", help="Write raw Enron CSV as ARFF for Weka")
+    export.add_argument("--csv", required=True)
+    export.add_argument("--output", required=True)
+    compare = sub.add_parser("compare-weka", help="Compare self-written NB with Weka NaiveBayesMultinomial")
+    compare.add_argument("--train-vec", required=True)
+    compare.add_argument("--test-vec", required=True)
+    compare.add_argument("--weka-pred", required=True)
+    compare.add_argument("--output", required=True)
+    report = sub.add_parser("report-run", help="Train NB/tree on Weka 70/30 split; evaluate test and SpamAssassin")
+    report.add_argument("--train", required=True)
+    report.add_argument("--test", required=True)
+    report.add_argument("--external", required=True)
+    report.add_argument("--output", required=True)
+    report.add_argument("--artifacts", required=True)
+    report.add_argument("--k", type=int, default=1000)
     args = parser.parse_args(argv)
     try:
         if args.command == "train-enron":
@@ -68,6 +83,15 @@ def main(argv: list[str] | None = None) -> int:
         elif args.command == "predict-text":
             from .inference import TextPredictor
             result = TextPredictor(args.release).predict_texts([args.text])[0]
+        elif args.command == "export-arff":
+            from .weka_io import write_enron_arff
+            result = {"output": args.output, "rows": write_enron_arff(args.csv, args.output)}
+        elif args.command == "compare-weka":
+            from .weka_compare import compare_with_weka
+            result = compare_with_weka(args.train_vec, args.test_vec, args.weka_pred, args.output)
+        elif args.command == "report-run":
+            from .report_experiments import run_report_experiments
+            result = run_report_experiments(args.train, args.test, args.external, args.output, args.artifacts, args.k)
         elif args.command == "check-config":
             config = load_config(args.config)
             result = {"status": "valid", "implemented_models": ["tree"], "tree": config.tree}
