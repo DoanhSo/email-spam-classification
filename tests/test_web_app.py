@@ -32,7 +32,8 @@ def test_submit_explain_and_clear():
     assert at.session_state["prediction"]["results"][0]["label"] == 0
     assert not at.get("doc_string")  # Streamlit must not render internal return objects.
     assert any("ham" in t.value for t in at.success)
-    assert any("Tỷ lệ spam tại lá" in t.value for t in at.markdown)
+    assert at.session_state["prediction"]["results"][0]["model_id"] == "nb"
+    assert any("Xác suất spam" in t.value for t in at.markdown)
     at.button(key="clear").click().run()
     assert at.text_area(key="body").value == ""
     assert "prediction" not in at.session_state
@@ -61,7 +62,7 @@ def test_examples_mode_and_result_snapshot():
     submit(at, "Enron report")
     assert not at.exception
     assert at.session_state["prediction"]["mode"] == "compare"
-    assert len(at.session_state["prediction"]["results"]) == 1
+    assert [row["model_id"] for row in at.session_state["prediction"]["results"]] == ["tree", "nb"]
 
 
 def test_bad_config_is_actionable(monkeypatch, tmp_path):

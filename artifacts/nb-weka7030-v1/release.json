@@ -1,0 +1,18 @@
+{
+  "format_version": 1,
+  "preprocessing_version": 1,
+  "model": "self_written_multinomial_nb",
+  "metadata": {
+    "train_rows": 3495,
+    "test_rows": 1498,
+    "external_rows": 5267,
+    "k": 1000,
+    "train_sha256": "9256756a9110728fc9cbd46213d3ccc60882f2fedd8bead9037facb60617de1f",
+    "test_sha256": "2739cb58fc1ea26c6b2193cab1e0cf53b978f02badc59f7809aa384b4478900a",
+    "alpha": 1.0
+  },
+  "checksums": {
+    "nb.json": "daa3aba5dcc3b91bedccabe68e943a73efb34f4bd6b2ab7790005985f1b7a013",
+    "features.json": "837b70d6bd7d1824701660c9ecb803326bcc09e4e5ae3aeed6b03ddd2c154c5b"
+  }
+}

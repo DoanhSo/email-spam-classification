@@ -45,6 +45,7 @@ Mỗi bước ghi rõ: **hình cần chụp**, **đường dẫn menu Weka**, **
 
 1. **Filter → Choose → unsupervised → attribute → StringToWordVector.** Bấm vào tên bộ lọc để mở
    bảng tham số và đặt:
+   - `attributeNamePrefix = W_` (bắt buộc: email có chứa từ "class", nếu không đặt tiền tố thì từ này trùng tên với thuộc tính lớp và Weka báo lỗi "Attribute names are not unique")
    - `outputWordCounts = True`
    - `lowerCaseTokens = True`
    - `minTermFreq = 2`
@@ -116,7 +117,7 @@ Mở **Weka GUI Chooser → Simple CLI**. Gõ lần lượt hai lệnh dưới �
 và chờ chữ "Finished" hoặc dấu nhắc mới:
 
 ```
-java weka.filters.unsupervised.attribute.StringToWordVector -b -i C:\Users\mrdoanh\Downloads\KhaiPhaDL\reports\weka\data\train.arff -o C:\Users\mrdoanh\Downloads\KhaiPhaDL\reports\weka\data\train_s2w.arff -r C:\Users\mrdoanh\Downloads\KhaiPhaDL\reports\weka\data\test.arff -s C:\Users\mrdoanh\Downloads\KhaiPhaDL\reports\weka\data\test_s2w.arff -C -L -M 2 -W 2000 -stopwords-handler weka.core.stopwords.Rainbow -c last
+java weka.filters.unsupervised.attribute.StringToWordVector -b -i C:\Users\mrdoanh\Downloads\KhaiPhaDL\reports\weka\data\train.arff -o C:\Users\mrdoanh\Downloads\KhaiPhaDL\reports\weka\data\train_s2w.arff -r C:\Users\mrdoanh\Downloads\KhaiPhaDL\reports\weka\data\test.arff -s C:\Users\mrdoanh\Downloads\KhaiPhaDL\reports\weka\data\test_s2w.arff -C -L -M 2 -W 2000 -P W_ -stopwords-handler weka.core.stopwords.Rainbow -c last
 ```
 
 Mở `train_s2w.arff` trong Explorer để xem `class` có nằm ở **đầu** danh sách thuộc tính không.

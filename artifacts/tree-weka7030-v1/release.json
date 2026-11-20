@@ -1,0 +1,22 @@
+{
+  "format_version": 1,
+  "preprocessing_version": 1,
+  "selected": {
+    "train_rows": 3495,
+    "test_rows": 1498,
+    "external_rows": 5267,
+    "k": 1000,
+    "train_sha256": "9256756a9110728fc9cbd46213d3ccc60882f2fedd8bead9037facb60617de1f",
+    "test_sha256": "2739cb58fc1ea26c6b2193cab1e0cf53b978f02badc59f7809aa384b4478900a",
+    "model": "self_written_binary_tree",
+    "parameters": {
+      "max_depth": 15,
+      "min_samples_split": 10,
+      "min_samples_leaf": 1
+    }
+  },
+  "checksums": {
+    "tree.json": "d0637060e0df0517dae51986e72eb45f94a2326457a6b063824d4b97d66c360c",
+    "features.json": "837b70d6bd7d1824701660c9ecb803326bcc09e4e5ae3aeed6b03ddd2c154c5b"
+  }
+}
