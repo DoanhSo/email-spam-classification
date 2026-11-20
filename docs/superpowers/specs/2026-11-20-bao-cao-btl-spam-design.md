@@ -151,11 +151,13 @@ Các mục có dấu ★ là phần thêm so với mẫu, để đáp ứng slid
 ### 6.1 Nguồn dữ liệu chuẩn (quyết định của người viết thiết kế)
 
 - Báo cáo mẫu nằm ở `C:\Users\mrdoanh\Downloads\Bai tap lon.pdf`.
-- File ARFF xuất từ CSV Enron **gốc** (5171 dòng) và giữ thêm thuộc tính `id`. Bản ghi trùng
-  được loại bằng `RemoveDuplicates` của Weka. Tập 70/30 do Weka tạo bằng `Randomize -S 42` và
-  `RemovePercentage`. Hai bước này **định nghĩa** dữ liệu của báo cáo. Weka lưu `train.arff` và
-  `test.arff`, Python đọc lại theo `id`. Trong mọi classifier, thuộc tính `id` bị loại bằng bộ
-  lọc `Remove`.
+- File ARFF xuất từ CSV Enron **gốc** (5171 dòng) với các thuộc tính `row_index`, `label_num`,
+  `text`, `class {ham,spam}`. Trên Weka, `row_index` và `label_num` bị loại như thuộc tính dư
+  thừa, tương ứng với bước bỏ Order/Color trong mẫu. Sau đó Weka loại bản ghi trùng bằng
+  `RemoveDuplicates`. Tập 70/30 do Weka tạo bằng `Randomize -S 42` và `RemovePercentage`.
+  Hai bước này **định nghĩa** dữ liệu của báo cáo. Weka lưu `train.arff` và `test.arff`, Python
+  đọc thẳng văn bản và nhãn từ hai file này nên không cần thuộc tính `id`. Phải bỏ `id` vì
+  `RemoveDuplicates` so sánh mọi thuộc tính: nếu giữ `id`, không bản ghi nào bị coi là trùng.
 - Kết quả 60/20/20 cũ trong repo (`reports/enron-v1`, `artifacts/tree-enron-v1`) **không dùng**
   trong báo cáo. Cây tự viết được huấn luyện lại trên tập 70/30 mới.
 - Weka Experimenter chỉ chạy trên `train.arff` (10×10 CV), để tập test 30% không bị dùng lại.
