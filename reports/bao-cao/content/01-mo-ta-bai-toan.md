@@ -24,7 +24,7 @@ Metsis và cộng sự [4] nhận thấy có nhiều biến thể Naive Bayes nh
 Bảng 1: Tóm tắt các công trình liên quan
 
 | TT | Tác giả (năm) | Nơi công bố | Dữ liệu | Phương pháp | Kết quả chính |
-|---|---|---|---|---|---|
+|---|------|-----|------|--------|--------|
 | 1 | Sahami và cs. (1998) [2] | AAAI Workshop | Thư người dùng | Bộ phân lớp Bayes, đặc trưng văn bản và đặc trưng riêng của thư rác | Bayes hiệu quả hơn luật viết tay |
 | 2 | Androutsopoulos và cs. (2000) [3] | ACM SIGIR ★ | Thư cá nhân (Ling-Spam) | Naive Bayes so với lọc theo từ khóa | Naive Bayes tốt hơn; cần tính chi phí chặn nhầm |
 | 3 | Metsis và cs. (2006) [4] | CEAS | Enron-Spam (6 tập) | 5 biến thể Naive Bayes | Công bố bộ Enron-Spam; so sánh các biến thể NB |
@@ -77,7 +77,7 @@ vi. Tự cài đặt thuật toán bằng Python, đối chiếu với Weka và 
 ➢ Hiểu các thuộc tính:
 
 | STT | Thuộc tính | Kiểu | Ý nghĩa thuộc tính |
-|---|---|---|---|
+|---|-----|----|-----------|
 | 1 | row_index | Numeric | Số thứ tự của bản ghi trong tệp gốc |
 | 2 | label_num | Numeric | Nhãn dạng số (0 = ham, 1 = spam) |
 | 3 | text | String | Nội dung email (tiêu đề và thân thư) |
