@@ -1,0 +1,12 @@
+key,authors,year,title,venue,doi_or_url,verified_on,in_scholar_list
+1,"Trần Mạnh Tuấn",2026,"Bài giảng và tài liệu thực hành Khai phá dữ liệu","Trường Đại học Thủy Lợi",,2026-11-20,no
+2,"M. Sahami; S. Dumais; D. Heckerman; E. Horvitz",1998,"A Bayesian Approach to Filtering Junk E-Mail","AAAI-98 Workshop on Learning for Text Categorization (Tech. Report WS-98-05), pp. 55-62",https://cdn.aaai.org/Workshops/1998/WS-98-05/WS98-05-009.pdf,2026-11-20,no
+3,"I. Androutsopoulos; J. Koutsias; K. V. Chandrinos; C. D. Spyropoulos",2000,"An experimental comparison of naive Bayesian and keyword-based anti-spam filtering with personal e-mail messages","Proc. ACM SIGIR 2000, pp. 160-167",https://doi.org/10.1145/345508.345569,2026-11-20,yes
+4,"V. Metsis; I. Androutsopoulos; G. Paliouras",2006,"Spam Filtering with Naive Bayes - Which Naive Bayes?","3rd Conference on Email and Anti-Spam (CEAS 2006)",https://core.ac.uk/works/16760537,2026-11-20,no
+5,"G. V. Cormack; T. R. Lynam",2007,"Online supervised spam filter evaluation","ACM Transactions on Information Systems 25(3)",https://doi.org/10.1145/1247715.1247717,2026-11-20,yes
+6,"D. Sculley; G. M. Wachman",2007,"Relaxed online SVMs for spam filtering","Proc. ACM SIGIR 2007, pp. 415-422",https://doi.org/10.1145/1277741.1277813,2026-11-20,yes
+7,"I. Fette; N. Sadeh; A. Tomasic",2007,"Learning to detect phishing emails","Proc. 16th International World Wide Web Conference (WWW 2007), pp. 649-656",https://doi.org/10.1145/1242572.1242660,2026-11-20,yes
+8,"Google Scholar Metrics",2026,"Top publications - Databases & Information Systems",Google Scholar,https://scholar.google.com/citations?view_op=top_venues&hl=en&vq=eng_databasesinformationsystems,2026-11-20,no
+9,"Kaggle (venky73)",2026,"Spam Mails Dataset (Enron)",Kaggle,https://www.kaggle.com/datasets/venky73/spam-mails-dataset,2026-11-20,no
+10,"Kaggle (nitishabharathi)",2026,"Email Spam Dataset (completeSpamAssassin)",Kaggle,https://www.kaggle.com/datasets/nitishabharathi/email-spam-dataset,2026-11-20,no
+11,"University of Waikato",2026,"Weka 3.8.7 - Data Mining Software in Java",,https://waikato.github.io/weka-wiki/,2026-11-20,no
