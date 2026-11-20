@@ -69,3 +69,17 @@ def test_bad_config_is_actionable(monkeypatch, tmp_path):
     at = app()
     assert not at.exception
     assert any("Không đọc được cấu hình" in e.value for e in at.error)
+
+
+def test_nb_default_shows_contributing_words(monkeypatch, tmp_path):
+    import sys
+    sys.path.insert(0, str(ROOT / "tests"))
+    from nb_fixture import make_nb_config
+
+    monkeypatch.setenv("SPAM_WEB_CONFIG", str(make_nb_config(tmp_path)))
+    at = app()
+    submit(at, "win free money now")
+    assert not at.exception
+    assert at.session_state["prediction"]["results"][0]["model_id"] == "nb"
+    assert any("Từ đóng góp" in str(t.value) for t in at.markdown) or any(
+        "Từ đóng góp" in str(table.value) for table in at.table)

@@ -118,3 +118,26 @@ def test_invalid_config_and_session_isolation(config, tmp_path):
     output = first.predict("", "Enron report")
     assert not hasattr(first, "last_input") and not hasattr(second, "last_input")
     assert second.predict("", "Enron report")["results"][0]["label"] == output["results"][0]["label"]
+
+
+def _nb_service(tmp_path):
+    from nb_fixture import make_nb_config
+    return PredictionService(load_web_config(make_nb_config(tmp_path), ROOT))
+
+
+def test_nb_service_matches_predictor(tmp_path):
+    from spam_detector.nb_release import NBTextPredictor
+
+    service = _nb_service(tmp_path)
+    assert service.ready_ids == ["tree", "nb"]
+    expected = NBTextPredictor(tmp_path / "nb-release").predict_texts(["Subject: Offer\nwin free money"])[0]
+    row = service.predict("Offer", "win free money", model_id="nb")["results"][0]
+    assert row["label"] == expected["label"] == 1
+    assert row["score_kind"] == "probability_uncalibrated"
+    assert row["score_value"] == expected["score_value"]
+    assert row["top_words"] == expected["top_words"]
+
+
+def test_nb_unpredictable_when_no_vocabulary(tmp_path):
+    with pytest.raises(ValueError, match="Không dự đoán được"):
+        _nb_service(tmp_path).predict("", "zzzz qqqq", model_id="nb")

@@ -12,6 +12,7 @@ import yaml
 
 from .data import sha256
 from .inference import TextPredictor
+from .nb_release import NBTextPredictor
 
 MODEL_IDS = ("tree", "nb", "lr", "svm")
 SCORE_KINDS = {"leaf_fraction", "probability_uncalibrated", "margin", "vote_score"}
@@ -43,16 +44,18 @@ def registry_fingerprint(config: dict) -> str:
     for spec in config["models"].values():
         if spec["release"]:
             root = Path(spec["release"])
-            for filename in ("release.json", "tree.json", "features.json"):
+            for filename in ("release.json", "tree.json", "nb.json", "features.json"):
                 path = root / filename
                 digest.update((sha256(path) if path.is_file() else "missing").encode())
     return digest.hexdigest()
 
 
 def default_loader(spec: dict):
-    if spec["adapter"] != "tree":
-        raise ValueError("Adapter not implemented")
-    return TextPredictor(spec["release"])
+    if spec["adapter"] == "tree":
+        return TextPredictor(spec["release"])
+    if spec["adapter"] == "nb":
+        return NBTextPredictor(spec["release"])
+    raise ValueError("Adapter not implemented")
 
 
 class PredictionService:
@@ -122,6 +125,7 @@ class PredictionService:
             "elapsed_ms": (perf_counter() - started) * 1000,
             "path": raw.get("path", []), "leaf_training_samples": raw.get("leaf_training_samples"),
             "matched_features": raw.get("matched_features"), "unique_tokens": raw.get("unique_tokens"),
+            "top_words": raw.get("top_words", []),
             "warning": "Không có từ nào khớp bộ đặc trưng. Dự đoán dựa trên các nhánh vắng từ đã học." if raw.get("warning") else None,
         }
 
@@ -142,6 +146,8 @@ class PredictionService:
                 results.append(self._predict_one(key, text))
             except Exception:
                 errors.append({"model_id": key, "message": f"{self.statuses[key]['name']} chưa xử lý được lần kiểm tra này. Vui lòng thử lại."})
+        if mode == "single" and model_id == "nb" and results and results[0]["matched_features"] == 0:
+            raise ValueError("Không dự đoán được: email không chứa từ nào trong bộ từ vựng của mô hình.")
         ensemble = None
         if mode == "ensemble" and not errors and len(results) == 4:
             weights = self.config["ensemble"]["weights"]

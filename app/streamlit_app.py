@@ -72,6 +72,14 @@ def render_result(result: dict):
     for row in rows:
         if row["warning"]:
             st.info(row["warning"])
+        if row["model_id"] == "nb":
+            with st.expander("Vì sao Naive Bayes có dự đoán này?", expanded=True):
+                st.write(f"Xác suất spam (chưa hiệu chuẩn): **{row['score_value']:.1%}**")
+                st.write("Từ đóng góp nhiều nhất vào quyết định spam:")
+                st.table([{"Từ": item["word"], "Đóng góp (log-odds)": f"{item['contribution']:+.3f}"}
+                          for item in row["top_words"]])
+                st.caption(f"Khớp {row['matched_features']} từ trong bộ từ vựng trên {row['unique_tokens']} token duy nhất sau xử lý. "
+                           "Đóng góp dương nghiêng về spam, âm nghiêng về thư thường.")
         if row["model_id"] == "tree":
             with st.expander("Vì sao Decision Tree có dự đoán này?", expanded=False):
                 st.write(f"Tỷ lệ spam tại lá: **{row['score_value']:.1%}** · Lá có **{row['leaf_training_samples']}** mẫu huấn luyện.")
