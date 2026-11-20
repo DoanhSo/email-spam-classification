@@ -51,6 +51,38 @@ Bước 6: Đánh giá mô hình bằng ba phương pháp kiểm thử: Use trai
 
 TODO
 
+➢ Giải thích các thống kê:
+
+- **Correctly Classified Instances**: số lượng mẫu được mô hình phân loại chính xác.
+- **Incorrectly Classified Instances**: số lượng mẫu bị mô hình phân loại sai.
+- **Kappa statistic** (thống kê Kappa): chỉ số đo mức độ đồng thuận giữa nhãn dự đoán và nhãn thực tế, đã hiệu chỉnh để loại trừ sự trùng hợp ngẫu nhiên.
+- **Mean absolute error** (sai số tuyệt đối trung bình): trung bình độ lệch tuyệt đối giữa xác suất dự đoán của mô hình và giá trị thực tế của mỗi mẫu.
+- **Root mean squared error** (căn bậc hai sai số bình phương trung bình): căn bậc hai của trung bình bình phương độ lệch giữa xác suất dự đoán và giá trị thực tế.
+- **Relative absolute error** (sai số tuyệt đối tương đối): sai số tuyệt đối của mô hình so với sai số của bộ dự đoán đơn giản luôn dự đoán theo tỉ lệ lớp, tính theo phần trăm.
+- **Root relative squared error** (căn bậc hai sai số bình phương tương đối): tương tự như trên nhưng tính trên sai số bình phương.
+- **Total Number of Instances**: tổng số mẫu được đánh giá.
+
+➢ Giải thích các độ đo (tính cho từng lớp, lớp dương tính là spam):
+
+- **TP Rate**: tỉ lệ mẫu dương tính được phân loại đúng trên tổng số mẫu dương tính (bằng Recall).
+- **FP Rate**: tỉ lệ mẫu âm tính bị phân loại nhầm thành dương tính trên tổng số mẫu âm tính. Với bài toán spam, FP Rate của lớp spam cho biết tỉ lệ thư hợp lệ bị chặn nhầm, là lỗi người dùng khó chấp nhận nhất.
+- **Precision**: trong các mẫu được dự đoán là dương tính, tỉ lệ mẫu thực sự dương tính.
+
+$$Precision = \frac{TP}{TP + FP}$$
+
+- **Recall**: trong các mẫu thực sự dương tính, tỉ lệ mẫu được dự đoán đúng.
+
+$$Recall = \frac{TP}{TP + FN}$$
+
+- **F-Measure**: trung bình điều hòa của Precision và Recall. F-Measure càng lớn thì phân loại càng tốt.
+
+$$F = \frac{2 \cdot Precision \cdot Recall}{Precision + Recall}$$
+
+- **MCC** (Matthews Correlation Coefficient): hệ số tương quan giữa nhãn dự đoán và nhãn thực tế. MCC = 1 tương ứng phân loại hoàn hảo, MCC = 0 tương đương đoán ngẫu nhiên, MCC = −1 là hoàn toàn ngược.
+- **ROC Area**: diện tích dưới đường cong ROC, thể hiện khả năng xếp hạng mẫu dương tính cao hơn mẫu âm tính. Giá trị càng gần 1 càng tốt, 0,5 tương đương đoán ngẫu nhiên.
+- **PRC Area**: diện tích dưới đường cong Precision–Recall, phù hợp khi dữ liệu lệch lớp.
+- **Confusion Matrix** (ma trận nhầm lẫn): bảng đếm số mẫu theo cặp (lớp thực tế, lớp dự đoán), gồm TN, FP, FN, TP.
+
 ## 3. So sánh với cây quyết định J48
 
 ### 3.1. Lý thuyết
