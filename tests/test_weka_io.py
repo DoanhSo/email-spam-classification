@@ -72,3 +72,12 @@ def test_vector_arff_rejects_missing_class(tmp_path):
     path.write_text("@relation v\n@attribute a numeric\n@data\n1\n", encoding="utf-8")
     with pytest.raises(ValueError):
         read_vector_arff(path)
+
+
+def test_cli_export_arff(tmp_path, capsys):
+    from spam_detector.cli import main
+
+    out = tmp_path / "out" / "enron.arff"
+    assert main(["export-arff", "--csv", str(_enron_csv(tmp_path / "e.csv")), "--output", str(out)]) == 0
+    assert '"rows": 3' in capsys.readouterr().out
+    assert len(read_text_arff(out)) == 3

@@ -47,6 +47,9 @@ def main(argv: list[str] | None = None) -> int:
     text = sub.add_parser("predict-text")
     text.add_argument("--release", required=True)
     text.add_argument("--text", required=True)
+    export = sub.add_parser("export-arff", help="Write raw Enron CSV as ARFF for Weka")
+    export.add_argument("--csv", required=True)
+    export.add_argument("--output", required=True)
     args = parser.parse_args(argv)
     try:
         if args.command == "train-enron":
@@ -68,6 +71,9 @@ def main(argv: list[str] | None = None) -> int:
         elif args.command == "predict-text":
             from .inference import TextPredictor
             result = TextPredictor(args.release).predict_texts([args.text])[0]
+        elif args.command == "export-arff":
+            from .weka_io import write_enron_arff
+            result = {"output": args.output, "rows": write_enron_arff(args.csv, args.output)}
         elif args.command == "check-config":
             config = load_config(args.config)
             result = {"status": "valid", "implemented_models": ["tree"], "tree": config.tree}
