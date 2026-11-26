@@ -16,3 +16,28 @@
 | Train (RemovePercentage -P 30) | 3495 (ham 2462, spam 1033) | hinh-13, train.arff |
 | Test (RemovePercentage -P 30 -V) | 1498 (ham 1069, spam 429) | hinh-14, test.arff |
 | Kiểm tra Python | train ∩ test = 0 email; train ∪ test = enron_dedup (4993) | read_text_arff |
+
+## Naive Bayes Multinomial trên Weka (FilteredClassifier: StringToWordVector -P W_ -W 2000 -C -L -M 2 Rainbow → AttributeSelection InfoGain/Ranker -N 500)
+
+| Cách kiểm thử | Đúng | Accuracy | Kappa | MAE | RMSE | RAE | RRSE | Spam P/R/F | Spam MCC/ROC/PRC | Ma trận (ham: TN FP; spam: FN TP) | Ảnh |
+|---|---|---|---|---|---|---|---|---|---|---|---|
+| Use training set (3495) | 3310 | 94.7067% | 0.8745 | 0.0537 | 0.2087 | 12.8953% | 45.7324% | 0.893/0.933/0.912 | 0.875/0.979/0.912 | 2346 116; 69 964 | hinh-16 |
+| 10-fold CV (3495) | 3294 | 94.2489% | 0.8636 | 0.0578 | 0.2176 | 13.8839% | 47.6915% | 0.886/0.924/0.905 | 0.864/0.977/0.904 | 2339 123; 78 955 | hinh-17 |
+| Supplied test set (1498) | 1394 | 93.0574% | 0.832 | 0.0674 | 0.2326 | 16.3216% | 51.4359% | 0.865/0.897/0.881 | 0.832/0.974/0.895 | 1009 60; 44 385 | hinh-18 |
+
+Ham (test): P 0.958, R 0.944, F 0.951, FP rate 0.103. Weighted avg F (test) 0.931.
+
+## J48 trên Weka (cùng filter, J48 -C 0.25 -M 2): cây 65 lá, kích thước 129 nút
+
+| Cách kiểm thử | Đúng | Accuracy | Kappa | MAE | RMSE | RAE | RRSE | Spam P/R/F | Spam MCC/ROC/PRC | Ma trận (ham: TN FP; spam: FN TP) | Ảnh |
+|---|---|---|---|---|---|---|---|---|---|---|---|
+| Use training set (3495) | 3339 | 95.5365% | 0.8948 | 0.0654 | 0.1808 | 15.6937% | 39.6176% | 0.898/0.957/0.927 | 0.896/0.991/0.973 | 2350 112; 44 989 | hinh-19 |
+| 10-fold CV (3495) | 3252 | 93.0472% | 0.8354 | 0.0838 | 0.2331 | 20.1311% | 51.0833% | 0.864/0.907/0.885 | 0.836/0.970/0.932 | 2315 147; 96 937 | hinh-20 |
+| Supplied test set (1498) | 1376 | 91.8558% | 0.8085 | 0.0971 | 0.2428 | 23.5389% | 53.7053% | 0.815/0.925/0.867 | 0.812/0.968/0.912 | 979 90; 32 397 | hinh-21 |
+
+Gốc cây (hinh-22): W_2004 > 0 → spam (86); W_prescription > 0 → spam (71); W_meds → spam (47); W_sex → spam (46); W_paliourg → spam (39); W_dealer → spam (36); W_php ...
+
+## Đối chiếu NB tự viết (Python) với NaiveBayesMultinomial (Weka)
+
+Vector do Weka batch filtering tạo (train_vec/test_vec, 500 từ). Python học trên train_vec, dự đoán test_vec.
+Kết quả: trùng 1498/1498 dự đoán; chênh lệch xác suất lớn nhất 0.000498 (Weka in 3 chữ số thập phân); ma trận nhầm lẫn giống hệt (TN 1009, FP 60, FN 44, TP 385). Nguồn: reports/bao-cao/results/nb_python_vs_weka.json
