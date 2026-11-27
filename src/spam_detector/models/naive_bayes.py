@@ -58,14 +58,16 @@ class MultinomialNaiveBayes:
     def predict(self, X: Any) -> NDArray[np.int64]:
         return (self.predict_proba(X)[:, 1] > 0.5).astype(np.int64)
 
-    def explain(self, x_row: Any, feature_names: Sequence[str], n: int = 5) -> list[tuple[str, float]]:
+    def explain(self, x_row: Any, feature_names: Sequence[str], n: int = 5, label: int = 1) -> list[tuple[str, float]]:
+        """Present words ranked by how strongly they push toward `label` (1 = spam, 0 = ham)."""
         self._check_fitted()
         row = count_matrix([x_row], self.feature_log_prob_.shape[1])[0]
         if len(feature_names) != row.size:
             raise ValueError("feature_names must match the number of features")
         contribution = row * (self.feature_log_prob_[1] - self.feature_log_prob_[0])
         present = np.flatnonzero(row > 0)
-        order = present[np.argsort(-contribution[present], kind="stable")]
+        direction = -1.0 if label == 1 else 1.0
+        order = present[np.argsort(direction * contribution[present], kind="stable")]
         return [(str(feature_names[i]), float(contribution[i])) for i in order[:n]]
 
     def to_dict(self) -> dict[str, Any]:
