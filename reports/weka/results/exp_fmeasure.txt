@@ -1,0 +1,20 @@
+Tester:     weka.experiment.PairedCorrectedTTester -G 4,5,6 -D 1 -R 2 -S 0.05 -V -result-matrix "weka.experiment.ResultMatrixPlainText -mean-prec 2 -stddev-prec 2 -col-name-width 0 -row-name-width 25 -mean-width 0 -stddev-width 0 -sig-width 0 -count-width 5 -show-stddev -print-col-names -print-row-names -enum-col-names"
+Analysing:  F_measure
+Datasets:   1
+Resultsets: 2
+Confidence: 0.05 (two tailed)
+Sorted by:  -
+Date:       27/11/26, 1:40?pm
+
+
+Dataset                   (1) meta.Filtered | (2) meta.Filte
+------------------------------------------------------------
+enron_spam-weka.filters.u(100)   0.91(0.02) |   0.89(0.02)  
+------------------------------------------------------------
+                                    (v/ /*) |        (0/1/0)
+
+
+Key:
+(1) meta.FilteredClassifier '-F \"MultiFilter -F \\\"unsupervised.attribute.StringToWordVector -R first-last -P W_ -W 2000 -prune-rate -1.0 -C -N 0 -L -stemmer weka.core.stemmers.NullStemmer -stopwords-handler weka.core.stopwords.Rainbow -M 2 -tokenizer \\\\\\\"weka.core.tokenizers.WordTokenizer -delimiters \\\\\\\\\\\\\\\" \\\\\\\\\\\\\\\\r\\\\\\\\\\\\\\\\n\\\\\\\\\\\\\\\\t.,;:\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\'\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"()?!\\\\\\\\\\\\\\\"\\\\\\\"\\\" -F \\\"supervised.attribute.AttributeSelection -E \\\\\\\"InfoGainAttributeEval \\\\\\\" -S \\\\\\\"Ranker -T -1.7976931348623157E308 -N 500\\\\\\\"\\\" -S 1\" -S 1 -W bayes.NaiveBayesMultinomial' -4523450618538717400
+(2) meta.FilteredClassifier '-F \"MultiFilter -F \\\"unsupervised.attribute.StringToWordVector -R first-last -P W_ -W 2000 -prune-rate -1.0 -C -N 0 -L -stemmer weka.core.stemmers.NullStemmer -stopwords-handler weka.core.stopwords.Rainbow -M 2 -tokenizer \\\\\\\"weka.core.tokenizers.WordTokenizer -delimiters \\\\\\\\\\\\\\\" \\\\\\\\\\\\\\\\r\\\\\\\\\\\\\\\\n\\\\\\\\\\\\\\\\t.,;:\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\'\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"()?!\\\\\\\\\\\\\\\"\\\\\\\"\\\" -F \\\"supervised.attribute.AttributeSelection -E \\\\\\\"InfoGainAttributeEval \\\\\\\" -S \\\\\\\"Ranker -T -1.7976931348623157E308 -N 500\\\\\\\"\\\" -S 1\" -S 1 -W trees.J48 -- -C 0.25 -M 2' -4523450618538717400
+

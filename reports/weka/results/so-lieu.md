@@ -41,3 +41,16 @@ Gốc cây (hinh-22): W_2004 > 0 → spam (86); W_prescription > 0 → spam (71)
 
 Vector do Weka batch filtering tạo (train_vec/test_vec, 500 từ). Python học trên train_vec, dự đoán test_vec.
 Kết quả: trùng 1498/1498 dự đoán; chênh lệch xác suất lớn nhất 0.000498 (Weka in 3 chữ số thập phân); ma trận nhầm lẫn giống hệt (TN 1009, FP 60, FN 44, TP 385). Nguồn: reports/bao-cao/results/nb_python_vs_weka.json
+
+## Kiểm định giả thuyết (Weka Experimenter, train.arff, 10 lần × 10-fold CV, PairedCorrectedTTester, α = 0.05 hai phía, IR stats cho lớp spam: -C 2)
+
+| Độ đo | NB (base) | J48 | Weka (v/ /*) | p (tính lại, hai phía) |
+|---|---|---|---|---|
+| F_measure | 0.9052 ± 0.0173 | 0.8876 ± 0.0244 | (0/1/0) không có ý nghĩa | 0.072 |
+| Percent_correct | 94.27 ± 1.09 | 93.16 ± 1.49 | (0/1/0) không có ý nghĩa | 0.058 |
+| IR_precision | 0.8869 ± 0.0262 | 0.8634 ± 0.0303 | (0/0/1) * J48 kém hơn có ý nghĩa | 0.037 |
+| Area_under_ROC | 0.9764 ± 0.0071 | 0.9681 ± 0.0124 | (chưa chạy trong GUI) | 0.079 |
+| IR_recall | 0.9250 ± 0.0214 | 0.9140 ± 0.0322 | (chưa chạy trong GUI) | 0.426 |
+
+Kết luận: không bác bỏ H0 về F-Measure ở α = 0.05 (p một phía ≈ 0.036). Precision của NB cao hơn J48 có ý nghĩa.
+Ghi chú: Experimenter GUI báo "Access is denied" khi ghi experiment.arff; thí nghiệm được chạy bằng weka.jar CLI với cùng cấu hình (config_nb.txt, config_j48.txt, -C 2), kết quả gộp vào experiment.arff và phân tích trong tab Analyse (hinh-24).
