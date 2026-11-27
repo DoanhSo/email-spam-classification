@@ -155,6 +155,16 @@ Giữ nguyên bộ lọc như mục 2.3, chỉ đổi `classifier` sang **trees 
 
 ![Hình 22: Phần gốc của cây quyết định J48](../weka/figures/hinh-22.png)
 
+Cửa sổ Visualize tree của Weka chỉ hiển thị rõ được phần gốc của cây. Để trình bày **toàn bộ cây** (129 nút, 65 lá, sâu 36 tầng), nhóm dựng lại cây từ chính mô hình mà Weka in ra trong kết quả (mục "J48 pruned tree" của lần chạy Supplied test set) và vẽ thành ba hình. Tên thuộc tính được bỏ tiền tố `W_`; mỗi lá ghi lớp dự đoán và (số mẫu huấn luyện tại lá / số mẫu bị phân sai); các ô màu vàng là chỗ nối sang hình khác.
+
+![Hình 23: Toàn bộ cây J48, phần thân chính (nửa trên)](figures/j48-tree-a.png)
+
+![Hình 24: Toàn bộ cây J48, phần thân chính (nửa dưới, nhánh http <= 0)](figures/j48-tree-b.png)
+
+![Hình 25: Toàn bộ cây J48, các nhánh phụ A–D](figures/j48-tree-c.png)
+
+➢ Đọc cây: nhánh chính bên trái kiểm tra lần lượt các từ đặc trưng của thư rác (`2004`, `prescription`, `meds`, `sex`, `dealer`, `php`, `pain`, `cheap`…); chỉ cần một từ xuất hiện là email được xếp vào spam. Nếu không chứa các từ đó, cây chuyển sang kiểm tra các từ đặc trưng của thư Enron (`enron`, `hpl`, `daren`, `gas`, `attached`, `deal`…) để xếp vào ham. Lá lớn nhất là `enron > 0 → ham (994 mẫu)`.
+
 Bảng 3: So sánh Naive Bayes và J48 trên Weka
 
 | Thống kê | NB – Training | J48 – Training | NB – CV 10 | J48 – CV 10 | NB – Test | J48 – Test |
@@ -186,9 +196,9 @@ $$t = \frac{\bar{d}}{\sqrt{\left(\frac{1}{k} + \frac{n_2}{n_1}\right)\hat{\sigma
 
 trong đó $\bar{d}$ và $\hat{\sigma}^2$ là trung bình và phương sai của hiệu số giữa hai mô hình trên $k = 100$ lần đánh giá, $n_2/n_1 = 1/9$ là tỉ lệ kích thước tập kiểm thử trên tập huấn luyện của mỗi fold.
 
-![Hình 23: Thiết lập thí nghiệm trên Weka Experimenter](../weka/figures/hinh-23.png)
+![Hình 26: Thiết lập thí nghiệm trên Weka Experimenter](../weka/figures/hinh-23.png)
 
-![Hình 24: Kết quả kiểm định F-Measure của lớp spam (base: Naive Bayes)](../weka/figures/hinh-24.png)
+![Hình 27: Kết quả kiểm định F-Measure của lớp spam (base: Naive Bayes)](../weka/figures/hinh-24.png)
 
 Bảng 4: Kết quả kiểm định (trung bình ± độ lệch chuẩn trên 100 lần đánh giá)
 
@@ -212,7 +222,7 @@ Bảng 4: Kết quả kiểm định (trung bình ± độ lệch chuẩn trên 
 
 ➢ Các từ mà mô hình Naive Bayes coi là đặc trưng nhất cho mỗi lớp (tỉ số $\log P(w \mid spam) - \log P(w \mid ham)$ lớn nhất và nhỏ nhất):
 
-![Hình 25: Các từ đặc trưng nhất của mỗi lớp theo Naive Bayes](results/figures/top_words_nb.png)
+![Hình 28: Các từ đặc trưng nhất của mỗi lớp theo Naive Bayes](results/figures/top_words_nb.png)
 
 ➢ Phân tích các trường hợp phân loại sai trên tập kiểm thử (60 thư ham bị nhận nhầm là spam và 44 thư spam bị bỏ sót):
 
@@ -241,7 +251,7 @@ Bảng 5: Kết quả trên tập kiểm thử Enron và trên SpamAssassin
 | Cây quyết định | Enron – test (1498) | 92,66% | 0,828 | 0,939 | 0,880 |
 | Cây quyết định | SpamAssassin (5267) | 44,88% | 0,294 | 0,816 | 0,432 |
 
-![Hình 26: Ma trận nhầm lẫn của Naive Bayes trên SpamAssassin](results/figures/confusion_nb_external.png)
+![Hình 29: Ma trận nhầm lẫn của Naive Bayes trên SpamAssassin](results/figures/confusion_nb_external.png)
 
 ➢ Nhận xét:
 

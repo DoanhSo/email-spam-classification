@@ -77,13 +77,13 @@ Nhóm xây dựng chương trình demo bằng thư viện Streamlit (tệp `app/
 
 ➢ Thực hành dự đoán với một email quảng cáo thuốc: mô hình dự đoán **Spam** với các từ đóng góp mạnh nhất là `prescription`, `viagra`, `meds`, `cialis`.
 
-![Hình 27: Kết quả dự đoán một email spam](figures/demo-spam.png)
+![Hình 30: Kết quả dự đoán một email spam](figures/demo-spam.png)
 
 ➢ Với một email công việc nội bộ: mô hình dự đoán **Thư thường (ham)**; các từ nghiêng mạnh nhất về thư hợp lệ được liệt kê với đóng góp âm.
 
-![Hình 28: Kết quả dự đoán một email hợp lệ](figures/demo-ham.png)
+![Hình 31: Kết quả dự đoán một email hợp lệ](figures/demo-ham.png)
 
 ➢ Trường hợp dữ liệu không nằm trong phạm vi dự đoán (email chỉ gồm các từ không có trong bộ từ vựng): kết quả trả về **"Không dự đoán được"**, tương tự kết quả "Unpredictable" trong chương trình mẫu.
 
-![Hình 29: Kết quả khi nhập email không có từ nào trong bộ từ vựng](figures/demo-khong-du-doan.png)
+![Hình 32: Kết quả khi nhập email không có từ nào trong bộ từ vựng](figures/demo-khong-du-doan.png)
 
