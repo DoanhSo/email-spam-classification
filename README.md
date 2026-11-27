@@ -1,122 +1,122 @@
-# Email Spam Classification
+# Hệ thống phát hiện email spam/rác
 
-Bài tập lớn môn Khai phá dữ liệu: phát hiện email spam tiếng Anh bằng bốn mô hình tự cài đặt và kết hợp bỏ phiếu có trọng số.
+Bài tập lớn môn **Khai phá dữ liệu**, Trường Đại học Thủy Lợi. Giảng viên: TS. Trần Mạnh Tuấn.
 
-## Thành viên và phân công
+Phân loại email tiếng Anh thành **ham** (thư hợp lệ) và **spam** (thư rác) bằng **Multinomial Naive Bayes** (mô hình chính) và **cây quyết định J48** (mô hình so sánh). Quy trình khai phá dữ liệu làm trên **Weka 3.8.7**; thuật toán Naive Bayes được **tự cài đặt bằng Python** và đối chiếu với Weka.
 
-- **Nguyễn Quốc Doanh:** Nhóm trưởng, Decision Tree, kiến trúc và nghiệm thu tích hợp.
-- **Lê Hữu Hiệu:** Naive Bayes, dữ liệu, tiền xử lý, EDA và giao diện demo.
-- **Thân Đức Minh:** Logistic Regression, biểu diễn và lựa chọn đặc trưng.
-- **Nguyễn Thái Dương:** Linear SVM, đánh giá thực nghiệm và ensemble.
+## Nhóm 12 – Lớp 65CNTT
 
-## Tài liệu dự án
+| STT | Họ tên | MSSV |
+|---|---|---|
+| 1 | Nguyễn Quốc Doanh (nhóm trưởng) | 2351060429 |
+| 2 | Nguyễn Thái Dương | 2351060435 |
+| 3 | Lê Hữu Hiệu | 2351060446 |
+| 4 | Thân Đức Minh | 2351060467 |
 
-- [Kế hoạch nhóm trong 4 tuần](KE_HOACH_NHOM.md): phạm vi, phân công, tiến độ và đầu ra từng giai đoạn.
-- [Thiết kế khung toàn bộ dự án](THIET_KE_KHUNG_DU_AN.md): kiến trúc, cấu trúc thư mục dự kiến, hợp đồng dữ liệu/mô hình, huấn luyện, đánh giá, lưu pipeline, demo và kiểm thử.
+## Sản phẩm
 
-## Trạng thái
+| Sản phẩm | Vị trí |
+|---|---|
+| Báo cáo Word (42 trang) | [reports/bao-cao/BaoCao_Nhom12_SpamEmail.docx](reports/bao-cao/BaoCao_Nhom12_SpamEmail.docx) |
+| Báo cáo PDF | [reports/bao-cao/BaoCao_Nhom12_SpamEmail.pdf](reports/bao-cao/BaoCao_Nhom12_SpamEmail.pdf) |
+| Đối chiếu với báo cáo mẫu | [reports/bao-cao/REVIEW.md](reports/bao-cao/REVIEW.md) |
+| Hướng dẫn thao tác Weka (24 hình) | [reports/weka/CHECKLIST.md](reports/weka/CHECKLIST.md) |
+| Số liệu Weka đã ghi lại | [reports/weka/results/so-lieu.md](reports/weka/results/so-lieu.md) |
+| Thiết kế và kế hoạch | [docs/superpowers/specs/](docs/superpowers/specs/2026-11-20-bao-cao-btl-spam-design.md), [docs/superpowers/plans/](docs/superpowers/plans/2026-11-20-bao-cao-btl-spam.md) |
+| Demo kiểm tra email | `app/streamlit_app.py` |
 
-Đã triển khai và train Decision Tree tự viết bằng NumPy trên Enron thật: tải dữ liệu Kaggle, kiểm tra/khử trùng, chia tập, binary/Chi-square, thử 18 cấu hình, CV 5-fold, đánh giá test và SpamAssassin, lưu release và dự đoán từ văn bản. Có kiểm thử và CI. NB/LR/SVM, ensemble đủ bốn mô hình và giao diện toàn nhóm vẫn theo phân công.
+## Kết quả chính
 
-Các lệnh toàn dự án trong bản thiết kế là đích tích hợp. Những lệnh đã chạy được cho nhánh Decision Tree được liệt kê dưới đây.
+Dữ liệu: bộ **Enron-Spam** (Kaggle, 5171 email). Sau khi loại 178 bản ghi trùng còn **4993 email** (3531 ham, 1462 spam), chia **70/30** thành 3495 email huấn luyện và 1498 email kiểm thử.
 
-Lộ trình dự kiến gồm 4 tuần, tạm tính từ 29/10 đến 25/11/2026, dự phòng 26-28/11. Hạn nộp chính thức sẽ được cập nhật theo thông báo môn học.
+| Mô hình (Weka) | Use training set | Cross-validation 10 | Tập kiểm thử | F-Measure spam (kiểm thử) |
+|---|---|---|---|---|
+| Naive Bayes Multinomial | 94,71% | 94,25% | **93,06%** | **0,881** |
+| J48 | 95,54% | 93,05% | 91,86% | 0,867 |
 
-## Phạm vi triển khai
+- **Đối chiếu:** Naive Bayes tự viết bằng Python cho **cùng dự đoán với Weka trên 1498/1498 email** kiểm thử.
+- **Kiểm định giả thuyết** (Weka Experimenter, 10 lần × 10-fold CV, corrected paired t-test, α = 0,05): Naive Bayes có kết quả trung bình cao hơn J48 ở mọi độ đo. Precision của lớp spam khác biệt có ý nghĩa (p = 0,037), F-Measure chưa đủ ý nghĩa (p = 0,072), nên chưa bác bỏ H0.
+- **Kiểm thử nguồn khác (SpamAssassin):** độ chính xác giảm còn khoảng 44% do lệch miền dữ liệu. Mô hình chỉ phù hợp với thư cùng nguồn với dữ liệu huấn luyện.
 
-- Dữ liệu chính: Enron-Spam; đánh giá trên nguồn khác bằng SpamAssassin.
-- Mô hình tự viết: Multinomial Naive Bayes, Logistic Regression, Linear SVM và Decision Tree.
-- Ensemble: bỏ phiếu theo nhãn, trọng số từ F1 validation.
-- Dự kiến dùng Python, NumPy/SciPy, pandas và Streamlit; thư viện mô hình dựng sẵn chỉ dùng trong thực nghiệm đối chiếu.
-- Random Forest và các mở rộng ngoài email tiếng Anh để ở hướng phát triển.
+## Cấu trúc thư mục
 
-## Bắt đầu phối hợp
+```
+app/streamlit_app.py            Demo kiểm tra email (Naive Bayes mặc định)
+src/spam_detector/
+  models/naive_bayes.py         Multinomial Naive Bayes tự viết (NumPy)
+  models/decision_tree.py       Cây quyết định tự viết (NumPy)
+  weka_io.py                    Ghi/đọc ARFF cho Weka
+  weka_compare.py               Đối chiếu NB Python với dự đoán của Weka
+  report_experiments.py         Thực nghiệm Python trên tập 70/30 của Weka và SpamAssassin
+  nb_release.py, inference.py   Đóng gói mô hình và dự đoán từ văn bản
+  web_service.py, cli.py        Dịch vụ cho demo và dòng lệnh
+artifacts/                      Mô hình đã huấn luyện (nb-weka7030-v1, tree-weka7030-v1)
+configs/web.yaml                Cấu hình mô hình cho demo
+data/raw/                       CSV Enron và SpamAssassin
+reports/weka/                   Dữ liệu ARFF, ảnh và kết quả Weka
+reports/bao-cao/                Nội dung báo cáo (Markdown), hình, script dựng Word
+tests/                          Kiểm thử tự động (pytest)
+```
 
-1. Đọc bản thiết kế và chốt interface, quy ước nhãn, schema dữ liệu.
-2. Dựng package và môi trường dùng chung.
-3. Hoàn thành một luồng học thật từ email đến metrics và lưu mô hình.
-4. Tích hợp lần lượt bốn mô hình, sau đó ensemble và demo.
+## Cài đặt
 
-Dữ liệu đầy đủ, môi trường ảo, mô hình đã học và đầu ra thực nghiệm lớn được loại khỏi Git. Khi triển khai, bổ sung hướng dẫn tải dữ liệu và phiên bản dependencies để tái lập kết quả.
-
-## Cài đặt và chạy phần Decision Tree
-
-Đã kiểm tra cục bộ với Python 3.12.14. Package yêu cầu Python >=3.11; CI có cấu hình kiểm tra 3.11/Linux và 3.12/Windows.
+Yêu cầu Python ≥ 3.11 (đã kiểm tra với 3.12 trên Windows).
 
 ```powershell
 python -m venv .venv
-.venv\Scripts\python -m pip install -e ".[dev,benchmark]"
+```
+
+```powershell
+.venv\Scripts\python -m pip install -e ".[dev,web,report]"
+```
+
+```powershell
 .venv\Scripts\python -m pytest -q
-.venv\Scripts\python -m spam_detector.cli check-config
-.venv\Scripts\python -m spam_detector.cli demo-tree --output runs/tree-demo --benchmark
 ```
 
-Linux/macOS thay `.venv\Scripts\python` bằng `.venv/bin/python`. Nếu chỉ cần mô hình, cài `python -m pip install -e .`; sklearn chỉ cần cho extra `benchmark`. Thư mục `--output` phải chưa tồn tại; dùng tên mới cho mỗi lần chạy.
+Linux/macOS thay `.venv\Scripts\python` bằng `.venv/bin/python`.
 
-Demo tạo dữ liệu số học giả lập 4 đặc trưng, không tải hoặc mô phỏng kết quả Enron. Dùng demo để kiểm tra mô hình, xuất luật, round-trip và luồng đánh giá; không dùng điểm số này làm chất lượng email thực tế.
+## Chạy demo
 
 ```powershell
-.venv\Scripts\python -m spam_detector.cli tune-tree --data runs/tree-demo/synthetic.npz --output runs/tree-tuning --depths 3 5 10 --leaf-sizes 1 5
-.venv\Scripts\python -m spam_detector.cli evaluate-tree --bundle runs/tree-demo/run/tree.json --data runs/tree-demo/synthetic.npz --split test
+.venv\Scripts\python -m streamlit run app/streamlit_app.py --server.port 8501
 ```
 
-Khi có đặc trưng thật từ Minh và ID/nhóm từ Hiệu/Dương:
+Mở http://localhost:8501, nhập tiêu đề và nội dung email tiếng Anh, bấm **Kiểm tra email**. Kết quả gồm nhãn Spam/Thư thường, xác suất spam và các từ đóng góp nhiều nhất vào kết luận. Email không chứa từ nào trong bộ từ vựng sẽ báo **"Không dự đoán được"**. Có thể chọn cây quyết định hoặc so sánh hai mô hình ở thanh bên.
+
+## Tái lập kết quả
+
+**1. Xuất dữ liệu cho Weka**
 
 ```powershell
-.venv\Scripts\python -m spam_detector.cli train-tree --data data/processed/tree_features.npz --output runs/tree-enron-01 --benchmark
+.venv\Scripts\python -m spam_detector.cli export-arff --csv data/raw/enron/spam_ham_dataset.csv --output reports/weka/data/enron_raw.arff
 ```
 
-Archive phải chứa ma trận 0/1, nhãn, tên đặc trưng, ID và nhóm theo [hợp đồng bàn giao](docs/contracts.md). Train/tune chỉ đọc train và validation; test/external chỉ chạy sau khi chốt cấu hình.
+**2. Thao tác trên Weka** theo [CHECKLIST.md](reports/weka/CHECKLIST.md): làm sạch, vector hóa, chọn thuộc tính, chia 70/30, chạy NB/J48 và Experimenter. Kết quả lưu trong `reports/weka/data` và `reports/weka/results`.
 
-## Tài liệu triển khai
-
-- [Interface và định dạng NPZ/bundle](docs/contracts.md).
-- [Tiến độ và phần bàn giao của Doanh](docs/DOANH_WORK.md).
-- [Lý thuyết, cài đặt và báo cáo Decision Tree](reports/decision_tree.md).
-- [Biên bản kiểm tra và phiên bản đã dùng](docs/verification.md).
-- [Kế hoạch triển khai và train trên Enron/SpamAssassin](docs/KE_HOACH_TRAIN_ENRON.md).
-- [Kế hoạch giao diện web kiểm tra email spam](docs/KE_HOACH_GIAO_DIEN_WEB.md).
-- [Cách chạy web và bàn giao adapter mô hình](docs/WEB_USAGE.md).
-
-Mã thuật toán chính: `src/spam_detector/models/decision_tree.py`. Các module mô hình không gọi sklearn. Phần import cây sklearn chỉ nằm trong nhánh benchmark tùy chọn của `tree_workflow.py` và các kiểm thử đối chiếu.
-
-## Huấn luyện toàn quy trình bằng dữ liệu thật
+**3. Đối chiếu Naive Bayes tự viết với Weka** (dùng vector do Weka batch filtering tạo ra):
 
 ```powershell
-.venv\Scripts\python -m pip install -e ".[dev,benchmark,training]"
-.venv\Scripts\python -m spam_detector.cli train-enron --output runs/enron-my-run --raw-dir data/raw
+.venv\Scripts\python -m spam_detector.cli compare-weka --train-vec reports/weka/data/train_vec.arff --test-vec reports/weka/data/test_vec.arff --weka-pred reports/weka/results/nb_test_predictions.csv --output reports/bao-cao/results
 ```
 
-Lệnh tự tải hai CSV công khai từ Kaggle khi chưa có cache, ghi checksum, làm sạch/chia tập, học đặc trưng trên train, train/tune, CV với pipeline mới trong từng fold, khóa cấu hình rồi đánh giá. Mỗi lần chạy dùng thư mục output mới. Raw/records/dự đoán có nội dung email nằm cục bộ và được ignore. Metadata nguồn nằm trong `provenance.json`; seed, cấu hình khảo sát và checksum mã nguồn nằm trong `run_manifest.json`.
-
-Kết quả đã chạy: Enron sạch 4.894 email, chia 2.936 train / 979 validation / 979 test. Chọn K=1.000, max_depth=15, min_samples_split=10, min_samples_leaf=1 bằng validation. Test Enron: Precision spam 82,16%, Recall 96,23%, F1 88,64%. SpamAssassin sạch 5.267 email: Precision 29,04%, Recall 90,77%, F1 44,00%; chặn nhầm 3.006/3.912 ham. Đây là hạn chế tổng quát hóa rõ rệt, chưa phù hợp để tự động chặn thư thật ngoài miền Enron.
-
-- [Báo cáo và hình kết quả thật](reports/enron-v1/REPORT.md).
-- [Summary máy đọc](reports/enron-v1/summary.json).
-- [Release cây cùng bộ biến đổi](artifacts/tree-enron-v1/release.json).
-- [Dự đoán validation bàn giao ensemble](reports/enron-v1/handoff/tree.validation.csv).
-
-Chạy ngay mô hình đã train trong repo:
+**4. Thực nghiệm Python** (huấn luyện NB và cây trên tập 70/30, đánh giá trên tập kiểm thử và SpamAssassin, tạo mô hình cho demo):
 
 ```powershell
-.venv\Scripts\python -m spam_detector.cli predict-text --release artifacts/tree-enron-v1 --text "Subject: meeting agenda. Please review the attached report."
+.venv\Scripts\python -m spam_detector.cli report-run --train reports/weka/data/train.arff --test reports/weka/data/test.arff --external data/raw/spamassassin/completeSpamAssassin.csv --output reports/bao-cao/results --artifacts artifacts
 ```
 
-Điểm `spam_fraction` là tỷ lệ lớp tại lá, không phải xác suất đã hiệu chuẩn. `path` giải thích các từ có/không dẫn đến dự đoán. Cây có thể học mạnh dấu hiệu đặc thù Enron như `enron`, `hpl`, tên người và thuật ngữ ngành; báo cáo giữ nguyên kết quả ngoài nguồn để phân tích hạn chế này.
-
-Các bước tách rời cũng có CLI: `prepare-enron --enron <csv> --external <csv> --output <new-dir>`, `build-tree-features --prepared <prepared-dir> --output <new-dir> --k 500`; `train-tree/tune-tree/evaluate-tree` tiếp tục nhận archive theo hợp đồng.
-
-Ngoại lệ có chủ đích với đầu ra sinh ra: repo giữ một release JSON nhỏ dưới `artifacts/` và snapshot báo cáo tổng hợp dưới `reports/enron-v1/` để nhóm dùng ngay. Không commit raw email, records đầy đủ hoặc các thư mục runs.
-
-## Giao diện web đã triển khai
+**5. Dựng báo cáo Word** từ các tệp `reports/bao-cao/content/*.md`:
 
 ```powershell
-.venv\Scripts\python -m pip install -e ".[web]"
-.venv\Scripts\python -m streamlit run app/streamlit_app.py --server.address 127.0.0.1 --server.port 8501
+.venv\Scripts\python reports/bao-cao/build_docx.py
 ```
 
-Mở http://127.0.0.1:8501. Có Subject/body, ví dụ minh họa, dự đoán, đường đi cây, thông tin chất lượng, xóa nội dung và chế độ so sánh các mô hình sẵn sàng. Web dùng lại TextPredictor, không huấn luyện lại hoặc lưu body vào log mặc định. Predictor cache theo session, kiểm tra checksum release trước khi dùng.
+Sau khi mở file .docx trong Word, chuột phải vào mục lục → **Update Field** để cập nhật số trang.
 
-Hiện Decision Tree hoạt động; NB/LR/SVM hiển thị chờ bàn giao. Chế độ ensemble chỉ bật khi đủ bốn adapter/release và trọng số validation khớp fingerprint. [WEB_USAGE](docs/WEB_USAGE.md) mô tả cấu hình và cách tích hợp tiếp.
+## Ghi chú
 
-Web đã được kiểm tra với Streamlit 1.66.1; tổng bộ kiểm thử hiện có 74 tests. Xem [biên bản kiểm tra](docs/verification.md) để phân biệt kiểm tra UI/pipeline và chất lượng mô hình ngoài nguồn.
+- Các bước vector hóa và chọn thuộc tính được đặt trong `FilteredClassifier` khi đánh giá, nên từ vựng chỉ học trên tập huấn luyện (không rò rỉ dữ liệu kiểm thử).
+- Bước xuất vector (batch filtering) và thí nghiệm Experimenter được chạy bằng `weka.jar` dòng lệnh với cùng cấu hình như giao diện, vì Experimenter GUI báo "Access is denied" khi ghi tệp kết quả.
+- Mô hình tự viết chỉ dùng NumPy; scikit-learn chỉ dùng cho bước tách từ và chọn đặc trưng của demo.
+- `KE_HOACH_NHOM.md`, `THIET_KE_KHUNG_DU_AN.md` và các tài liệu trong `docs/` (trừ `docs/superpowers/`) là kế hoạch phạm vi cũ (4 mô hình + ensemble), giữ lại làm lịch sử.
