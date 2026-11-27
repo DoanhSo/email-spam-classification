@@ -47,7 +47,7 @@ Thiết kế kiểm định: dùng Weka Experimenter chạy kiểm chứng chéo
 
 ## 5. Quy trình thực hiện
 
-Quy trình khai phá dữ liệu gồm 6 bước:
+Theo bài giảng của môn học [1], quy trình khai phá dữ liệu gồm 6 bước:
 
 - Bước 1: Tạo tập tin dữ liệu đầu vào
 - Bước 2: Tiền xử lý, làm sạch tập dữ liệu
@@ -62,7 +62,7 @@ i. Thu thập dữ liệu và chuyển sang định dạng ARFF của Weka
 ii. Tiền xử lý dữ liệu (làm sạch, loại trùng lặp)
 iii. Biến đổi dữ liệu (vector hóa văn bản, lựa chọn thuộc tính)
 iv. Phân tách dữ liệu huấn luyện/kiểm thử (70/30)
-v. Xây dựng và đánh giá mô hình phân lớp trên Weka, kiểm định giả thuyết
+v. Xây dựng và đánh giá mô hình phân lớp trên công cụ Weka [11], kiểm định giả thuyết
 vi. Tự cài đặt thuật toán bằng Python, đối chiếu với Weka và xây dựng chương trình dự đoán
 
 ## 6. Phân tích dữ liệu thô
