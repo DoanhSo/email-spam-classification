@@ -7,7 +7,7 @@ Sau khi hoàn thành đề tài "Hệ thống phát hiện email spam/rác", nh�
 - Tìm hiểu tổng quan về khám phá tri thức, khai phá dữ liệu, bài toán phân lớp; khảo sát các công trình về lọc thư rác trên các hội nghị, tạp chí thuộc nhóm Databases & Information Systems; nắm vững thuật toán Multinomial Naive Bayes và cây quyết định C4.5 (J48).
 - Thực hiện đầy đủ quy trình khai phá dữ liệu trên bộ Enron-Spam bằng Weka: loại thuộc tính dư thừa, loại 178 bản ghi trùng, vector hóa văn bản, chọn 500 thuộc tính theo Information Gain, phân tách dữ liệu 70/30 và đặt các bộ lọc trong FilteredClassifier để tránh rò rỉ dữ liệu.
 - Xây dựng mô hình Naive Bayes đạt độ chính xác 93,06% và F-Measure lớp spam 0,881 trên tập kiểm thử; so sánh với cây quyết định J48 (91,86%; 0,867) theo ba phương pháp kiểm thử.
-- Đặt và kiểm định giả thuyết bằng Weka Experimenter (10 lần × 10 fold, kiểm định t ghép cặp có hiệu chỉnh): Naive Bayes tốt hơn J48 ở mọi độ đo, khác biệt về Precision có ý nghĩa thống kê, còn khác biệt về F-Measure chưa đủ ý nghĩa ở mức 0,05.
+- Đặt và kiểm định giả thuyết bằng Weka Experimenter (10 lần × 10 fold, kiểm định t ghép cặp có hiệu chỉnh): Naive Bayes có kết quả trung bình cao hơn J48 ở mọi độ đo; khác biệt về Precision có ý nghĩa thống kê, còn khác biệt về F-Measure chưa đủ ý nghĩa ở mức 0,05 nên chưa bác bỏ được H0.
 - Tự cài đặt thuật toán Naive Bayes bằng Python; kết quả trùng khớp với Weka trên toàn bộ 1498 email kiểm thử. Xây dựng chương trình demo cho phép nhập email và giải thích kết quả bằng các từ đóng góp.
 
 Hạn chế của đề tài:

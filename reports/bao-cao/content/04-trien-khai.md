@@ -29,7 +29,7 @@ def predict_proba(self, X):
     return probabilities / probabilities.sum(axis=1, keepdims=True)
 ```
 
-Ngoài ra, hàm `explain` liệt kê các từ có mặt trong email, xếp theo mức đóng góp vào quyết định spam $f_w \,(\log P(w \mid spam) - \log P(w \mid ham))$. Chương trình demo dùng hàm này để giải thích kết quả cho người dùng. Mô hình được kiểm thử tự động bằng các ví dụ tính tay, ví dụ: với tập huấn luyện 3 email và 3 từ, xác suất dự đoán phải đúng bằng $[0{,}6;\ 0{,}4]$ như khi tính tay.
+Ngoài ra, hàm `explain` liệt kê các từ có mặt trong email, xếp theo mức đóng góp $f_w \,(\log P(w \mid spam) - \log P(w \mid ham))$ vào kết luận của mô hình: với email dự đoán là spam, các từ có đóng góp dương lớn nhất đứng đầu; với email dự đoán là ham, các từ có đóng góp âm nhất đứng đầu. Chương trình demo dùng hàm này để giải thích kết quả cho người dùng. Mô hình được kiểm thử tự động bằng các ví dụ tính tay, ví dụ: với tập huấn luyện 3 email và 3 từ, xác suất dự đoán phải đúng bằng $[0{,}6;\ 0{,}4]$ như khi tính tay.
 
 ## 2. Đối chiếu kết quả với Weka
 
@@ -67,19 +67,19 @@ Nhóm xây dựng chương trình demo bằng thư viện Streamlit (tệp `app/
 
 - Nhập tiêu đề (không bắt buộc) và nội dung email tiếng Anh;
 - Bấm **Kiểm tra email**;
-- Chương trình hiển thị kết quả **Spam** hoặc **Thư thường (ham)**, xác suất spam và bảng các từ đóng góp nhiều nhất vào quyết định.
+- Chương trình hiển thị kết quả **Spam** hoặc **Thư thường (ham)**, xác suất spam và bảng các từ đóng góp nhiều nhất vào kết luận. Nếu nội dung email để trống, chương trình yêu cầu nhập nội dung trước khi kiểm tra.
 
 | Kết quả | Ý nghĩa |
 |---|---|
 | Spam | Email được dự đoán là thư rác |
 | Thư thường (ham) | Email được dự đoán là thư hợp lệ |
-| Không dự đoán được | Email rỗng hoặc không chứa từ nào trong bộ từ vựng của mô hình |
+| Không dự đoán được | Email không chứa từ nào trong bộ từ vựng của mô hình Naive Bayes |
 
 ➢ Thực hành dự đoán với một email quảng cáo thuốc: mô hình dự đoán **Spam** với các từ đóng góp mạnh nhất là `prescription`, `viagra`, `meds`, `cialis`.
 
 ![Hình 27: Kết quả dự đoán một email spam](figures/demo-spam.png)
 
-➢ Với một email công việc nội bộ: mô hình dự đoán **Thư thường (ham)**.
+➢ Với một email công việc nội bộ: mô hình dự đoán **Thư thường (ham)**; các từ nghiêng mạnh nhất về thư hợp lệ được liệt kê với đóng góp âm.
 
 ![Hình 28: Kết quả dự đoán một email hợp lệ](figures/demo-ham.png)
 

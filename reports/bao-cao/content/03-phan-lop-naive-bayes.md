@@ -197,16 +197,16 @@ Bảng 4: Kết quả kiểm định (trung bình ± độ lệch chuẩn trên 
 | F-Measure | 0,905 ± 0,017 | 0,888 ± 0,024 | Khác biệt không có ý nghĩa | 0,072 |
 | Accuracy | 94,27% ± 1,09 | 93,16% ± 1,49 | Khác biệt không có ý nghĩa | 0,058 |
 | Precision | 0,887 ± 0,026 | 0,863 ± 0,030 | J48 kém hơn có ý nghĩa (*) | 0,037 |
-| Recall | 0,925 ± 0,021 | 0,914 ± 0,032 | Khác biệt không có ý nghĩa | 0,426 |
-| ROC Area | 0,976 ± 0,007 | 0,968 ± 0,012 | Khác biệt không có ý nghĩa | 0,079 |
+| Recall | 0,925 ± 0,021 | 0,914 ± 0,032 | (tính lại) Khác biệt không có ý nghĩa | 0,426 |
+| ROC Area | 0,976 ± 0,007 | 0,968 ± 0,012 | (tính lại) Khác biệt không có ý nghĩa | 0,079 |
 
-*Ghi chú: cột "Kết quả Weka" lấy từ tab Analyse (ký hiệu `*` nghĩa là mô hình so sánh kém hơn mô hình gốc có ý nghĩa thống kê); giá trị p được nhóm tính lại theo đúng công thức trên từ tệp kết quả của Experimenter.*
+*Ghi chú: cột "Kết quả Weka" của ba dòng F-Measure, Accuracy và Precision lấy từ tab Analyse (ký hiệu `*` nghĩa là mô hình so sánh kém hơn mô hình gốc có ý nghĩa thống kê). Hai dòng Recall và ROC Area không chạy trong tab Analyse; kết luận được nhóm tính lại theo đúng công thức trên. Toàn bộ cột giá trị p được nhóm tính lại từ tệp kết quả của Experimenter và khớp với kết luận của Weka ở ba dòng đầu.*
 
 ➢ Kết luận kiểm định:
 
 - Naive Bayes đạt kết quả trung bình **cao hơn** J48 ở tất cả các độ đo.
-- Với độ đo chính là F-Measure của lớp spam, hiệu số là +0,018 với p = 0,072 > 0,05. Do đó, ở mức ý nghĩa 0,05 **chưa đủ bằng chứng để bác bỏ H0**: dữ liệu cho thấy xu hướng ủng hộ H1 nhưng chưa khẳng định được Naive Bayes có F-Measure lớn hơn J48 một cách có ý nghĩa thống kê. (Nếu kiểm định một phía theo đúng hướng của H1 thì p ≈ 0,036; nhóm giữ kết luận theo kiểm định hai phía của Weka như thiết kế ban đầu.)
-- Riêng **Precision** của lớp spam, Naive Bayes tốt hơn J48 có ý nghĩa thống kê (p = 0,037). Nghĩa là trong các thư bị mô hình gắn nhãn spam, tỉ lệ thư thực sự là spam của Naive Bayes cao hơn, hay nói cách khác Naive Bayes **chặn nhầm thư hợp lệ ít hơn** một cách đáng tin cậy. Điều này phù hợp với kết quả trên tập kiểm thử (60 so với 90 thư bị chặn nhầm).
+- Với độ đo chính là F-Measure của lớp spam, hiệu số là +0,018 với p = 0,072 > 0,05 (kiểm định hai phía). Do đó, ở mức ý nghĩa 0,05 **chưa đủ bằng chứng để bác bỏ H0**: Naive Bayes có F-Measure trung bình cao hơn, đúng với kỳ vọng, nhưng khác biệt này chưa có ý nghĩa thống kê.
+- Riêng **Precision** của lớp spam, Naive Bayes cao hơn J48 có ý nghĩa thống kê ở mức 0,05 (p = 0,037): trong các thư bị gắn nhãn spam, tỉ lệ thư thực sự là spam của Naive Bayes cao hơn. Kết quả này phù hợp với việc Naive Bayes chặn nhầm ít thư hợp lệ hơn trên tập kiểm thử (60 so với 90 thư). Tuy nhiên cần lưu ý nhóm kiểm định 5 độ đo cùng lúc mà không hiệu chỉnh đa so sánh, nên kết luận về Precision chỉ nên xem là bằng chứng ở mức vừa phải.
 
 ## 5. Nhận xét và phân tích lỗi
 

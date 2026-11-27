@@ -55,6 +55,6 @@ Báo cáo mẫu: `Bai tap lon.pdf` (đề tài chất lượng ô tô, 29 trang)
 
 ## Ghi chú trung thực
 
-- Kết quả kiểm định: không bác bỏ H0 về F-Measure ở α = 0,05 (p = 0,072 hai phía); Precision khác biệt có ý nghĩa (p = 0,037).
+- Kết quả kiểm định (H1 hai phía): không bác bỏ H0 về F-Measure ở α = 0,05 (p = 0,072); Precision khác biệt có ý nghĩa (p = 0,037, chưa hiệu chỉnh đa so sánh). Recall và ROC Area trong Bảng 4 được đánh dấu "(tính lại)" vì không chạy trong tab Analyse.
 - Weka Experimenter GUI báo "Access is denied" khi ghi tệp kết quả, nên thí nghiệm được chạy bằng `weka.jar` (dòng lệnh) với cùng cấu hình; phần phân tích (Hình 24) làm trên tab Analyse của GUI.
 - Bước batch filtering (xuất vector cho đối chiếu Python) chạy bằng `weka.jar` dòng lệnh, cùng tham số với GUI.
