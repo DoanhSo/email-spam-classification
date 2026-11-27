@@ -49,7 +49,48 @@ Bước 6: Đánh giá mô hình bằng ba phương pháp kiểm thử: Use trai
 
 ### 2.3. Kết quả thu được
 
-TODO
+➢ Cấu hình trên Weka: tab **Classify → Choose → meta → FilteredClassifier**, trong đó:
+
+- `filter` = **MultiFilter** gồm hai bộ lọc theo thứ tự: StringToWordVector (tham số như Hình 7) rồi AttributeSelection (InfoGain, Ranker, 500 thuộc tính, như Hình 10);
+- `classifier` = **bayes → NaiveBayesMultinomial**.
+
+![Hình 15: Cấu hình FilteredClassifier với NaiveBayesMultinomial](../weka/figures/hinh-15.png)
+
+➢ Test options với **Use training set** (đánh giá trên chính 3495 email huấn luyện):
+
+![Hình 16: Kết quả Naive Bayes khi sử dụng Use training set](../weka/figures/hinh-16.png)
+
+➢ Test options với **Cross-validation** (10 fold trên tập huấn luyện):
+
+![Hình 17: Kết quả Naive Bayes khi sử dụng Cross-validation](../weka/figures/hinh-17.png)
+
+➢ Test options với **Supplied test set** (tập kiểm thử 1498 email chưa từng dùng để huấn luyện):
+
+![Hình 18: Kết quả Naive Bayes khi sử dụng Supplied test set](../weka/figures/hinh-18.png)
+
+Bảng 2: Tổng hợp kết quả Naive Bayes theo ba cách kiểm thử
+
+| Thống kê | Use training set | Cross-validation (10) | Supplied test set |
+|---|---|---|---|
+| Số mẫu | 3495 | 3495 | 1498 |
+| Correctly Classified | 3310 (94,71%) | 3294 (94,25%) | 1394 (93,06%) |
+| Incorrectly Classified | 185 (5,29%) | 201 (5,75%) | 104 (6,94%) |
+| Kappa statistic | 0,8745 | 0,8636 | 0,8320 |
+| Mean absolute error | 0,0537 | 0,0578 | 0,0674 |
+| Root mean squared error | 0,2087 | 0,2176 | 0,2326 |
+| Relative absolute error | 12,90% | 13,88% | 16,32% |
+| Root relative squared error | 45,73% | 47,69% | 51,44% |
+| Precision (spam) | 0,893 | 0,886 | 0,865 |
+| Recall (spam) | 0,933 | 0,924 | 0,897 |
+| F-Measure (spam) | 0,912 | 0,905 | 0,881 |
+| MCC | 0,875 | 0,864 | 0,832 |
+| ROC Area | 0,979 | 0,977 | 0,974 |
+| Ma trận nhầm lẫn [TN FP; FN TP] | [2346 116; 69 964] | [2339 123; 78 955] | [1009 60; 44 385] |
+
+➢ Nhận xét:
+
+- Kết quả giảm dần từ Use training set → Cross-validation → Supplied test set, đúng như kỳ vọng: đánh giá trên chính dữ liệu huấn luyện luôn lạc quan nhất, còn tập kiểm thử chưa từng thấy phản ánh sát nhất hiệu quả thực tế. Mức chênh lệch nhỏ (94,71% so với 93,06%) cho thấy mô hình ít bị quá khớp.
+- Trên tập kiểm thử, mô hình phân loại đúng **93,06%** email. Trong 429 thư spam, mô hình phát hiện được 385 thư (Recall 0,897); trong 1069 thư hợp lệ, có 60 thư bị chặn nhầm (FP Rate 0,056).
 
 ➢ Giải thích các thống kê:
 
@@ -102,16 +143,109 @@ $$SplitInfo_A(D) = -\sum_{j=1}^{v} \frac{|D_j|}{|D|} \log_2 \frac{|D_j|}{|D|}, \
 
 ### 3.2. Kết quả thu được
 
-TODO
+Giữ nguyên bộ lọc như mục 2.3, chỉ đổi `classifier` sang **trees → J48** (`confidenceFactor = 0.25`, `minNumObj = 2`) và chạy lại ba cách kiểm thử.
+
+![Hình 19: Kết quả J48 khi sử dụng Use training set](../weka/figures/hinh-19.png)
+
+![Hình 20: Kết quả J48 khi sử dụng Cross-validation](../weka/figures/hinh-20.png)
+
+![Hình 21: Kết quả J48 khi sử dụng Supplied test set](../weka/figures/hinh-21.png)
+
+➢ Cây quyết định thu được có **65 lá** và **129 nút**. Phần gốc của cây cho thấy các luật dễ hiểu: nếu email chứa từ `2004` thì là spam (86 mẫu), nếu không thì xét tiếp `prescription`, `meds`, `sex`, `dealer`…, mỗi nhánh "> 0" đều dẫn đến lá spam.
+
+![Hình 22: Phần gốc của cây quyết định J48](../weka/figures/hinh-22.png)
+
+Bảng 3: So sánh Naive Bayes và J48 trên Weka
+
+| Thống kê | NB – Training | J48 – Training | NB – CV 10 | J48 – CV 10 | NB – Test | J48 – Test |
+|---|---|---|---|---|---|---|
+| Accuracy | 94,71% | 95,54% | 94,25% | 93,05% | **93,06%** | 91,86% |
+| Kappa | 0,875 | 0,895 | 0,864 | 0,835 | **0,832** | 0,809 |
+| Precision (spam) | 0,893 | 0,898 | 0,886 | 0,864 | **0,865** | 0,815 |
+| Recall (spam) | 0,933 | 0,957 | 0,924 | 0,907 | 0,897 | **0,925** |
+| F-Measure (spam) | 0,912 | 0,927 | 0,905 | 0,885 | **0,881** | 0,867 |
+| ROC Area | 0,979 | 0,991 | 0,977 | 0,970 | **0,974** | 0,968 |
+| Thư hợp lệ bị chặn nhầm (FP) | 116 | 112 | 123 | 147 | **60** | 90 |
+
+➢ Nhận xét:
+
+- Trên chính tập huấn luyện, J48 cao hơn Naive Bayes (95,54% so với 94,71%), nhưng khi chuyển sang Cross-validation và tập kiểm thử thì J48 giảm mạnh hơn và thấp hơn Naive Bayes. Đây là dấu hiệu J48 quá khớp với dữ liệu huấn luyện.
+- Trên tập kiểm thử, J48 bắt được nhiều spam hơn một chút (Recall 0,925 so với 0,897) nhưng chặn nhầm nhiều thư hợp lệ hơn hẳn (90 so với 60 thư). Với bộ lọc thư, chặn nhầm thư hợp lệ là lỗi nghiêm trọng hơn, nên Naive Bayes phù hợp hơn.
 
 ## 4. Kiểm định giả thuyết
 
-TODO
+➢ Thiết kế thí nghiệm trên **Weka Experimenter**:
+
+- Dữ liệu: chỉ dùng tập huấn luyện `train.arff` (3495 email), không dùng tập kiểm thử, để tập kiểm thử không bị "dùng lại" cho việc so sánh mô hình.
+- Phương pháp: kiểm chứng chéo 10 fold, lặp lại 10 lần với các cách chia khác nhau, tổng cộng 100 lần đánh giá cho mỗi mô hình.
+- Hai mô hình: FilteredClassifier + NaiveBayesMultinomial và FilteredClassifier + J48, cùng một bộ lọc.
+- Các độ đo Precision, Recall, F-Measure được tính cho lớp **spam** (`classForIRStatistics` của ClassifierSplitEvaluator đặt về lớp spam).
+- Kiểm định: **Paired T-Tester (corrected)**, mức ý nghĩa **α = 0,05** (hai phía). Đây là kiểm định t ghép cặp có hiệu chỉnh phương sai (Nadeau và Bengio) cho kết quả kiểm chứng chéo lặp lại, vì các fold dùng chung dữ liệu huấn luyện nên không hoàn toàn độc lập:
+
+$$t = \frac{\bar{d}}{\sqrt{\left(\frac{1}{k} + \frac{n_2}{n_1}\right)\hat{\sigma}^2}}$$
+
+trong đó $\bar{d}$ và $\hat{\sigma}^2$ là trung bình và phương sai của hiệu số giữa hai mô hình trên $k = 100$ lần đánh giá, $n_2/n_1 = 1/9$ là tỉ lệ kích thước tập kiểm thử trên tập huấn luyện của mỗi fold.
+
+![Hình 23: Thiết lập thí nghiệm trên Weka Experimenter](../weka/figures/hinh-23.png)
+
+![Hình 24: Kết quả kiểm định F-Measure của lớp spam (base: Naive Bayes)](../weka/figures/hinh-24.png)
+
+Bảng 4: Kết quả kiểm định (trung bình ± độ lệch chuẩn trên 100 lần đánh giá)
+
+| Độ đo (lớp spam) | Naive Bayes | J48 | Kết quả Weka | Giá trị p (hai phía) |
+|---|---|---|---|---|
+| F-Measure | 0,905 ± 0,017 | 0,888 ± 0,024 | Khác biệt không có ý nghĩa | 0,072 |
+| Accuracy | 94,27% ± 1,09 | 93,16% ± 1,49 | Khác biệt không có ý nghĩa | 0,058 |
+| Precision | 0,887 ± 0,026 | 0,863 ± 0,030 | J48 kém hơn có ý nghĩa (*) | 0,037 |
+| Recall | 0,925 ± 0,021 | 0,914 ± 0,032 | (tính lại) Khác biệt không có ý nghĩa | 0,426 |
+| ROC Area | 0,976 ± 0,007 | 0,968 ± 0,012 | (tính lại) Khác biệt không có ý nghĩa | 0,079 |
+
+*Ghi chú: cột "Kết quả Weka" của ba dòng F-Measure, Accuracy và Precision lấy từ tab Analyse (ký hiệu `*` nghĩa là mô hình so sánh kém hơn mô hình gốc có ý nghĩa thống kê). Hai dòng Recall và ROC Area không chạy trong tab Analyse; kết luận được nhóm tính lại theo đúng công thức trên. Toàn bộ cột giá trị p được nhóm tính lại từ tệp kết quả của Experimenter và khớp với kết luận của Weka ở ba dòng đầu.*
+
+➢ Kết luận kiểm định:
+
+- Naive Bayes đạt kết quả trung bình **cao hơn** J48 ở tất cả các độ đo.
+- Với độ đo chính là F-Measure của lớp spam, hiệu số là +0,018 với p = 0,072 > 0,05 (kiểm định hai phía). Do đó, ở mức ý nghĩa 0,05 **chưa đủ bằng chứng để bác bỏ H0**: Naive Bayes có F-Measure trung bình cao hơn, đúng với kỳ vọng, nhưng khác biệt này chưa có ý nghĩa thống kê.
+- Riêng **Precision** của lớp spam, Naive Bayes cao hơn J48 có ý nghĩa thống kê ở mức 0,05 (p = 0,037): trong các thư bị gắn nhãn spam, tỉ lệ thư thực sự là spam của Naive Bayes cao hơn. Kết quả này phù hợp với việc Naive Bayes chặn nhầm ít thư hợp lệ hơn trên tập kiểm thử (60 so với 90 thư). Tuy nhiên cần lưu ý nhóm kiểm định 5 độ đo cùng lúc mà không hiệu chỉnh đa so sánh, nên kết luận về Precision chỉ nên xem là bằng chứng ở mức vừa phải.
 
 ## 5. Nhận xét và phân tích lỗi
 
-TODO
+➢ Các từ mà mô hình Naive Bayes coi là đặc trưng nhất cho mỗi lớp (tỉ số $\log P(w \mid spam) - \log P(w \mid ham)$ lớn nhất và nhỏ nhất):
+
+![Hình 25: Các từ đặc trưng nhất của mỗi lớp theo Naive Bayes](results/figures/top_words_nb.png)
+
+➢ Phân tích các trường hợp phân loại sai trên tập kiểm thử (60 thư ham bị nhận nhầm là spam và 44 thư spam bị bỏ sót):
+
+| Loại lỗi | Ví dụ nội dung email (rút gọn) | Nguyên nhân |
+|---|---|---|
+| Thư spam bị bỏ sót | "Subject: " (thư chỉ có tiêu đề rỗng) | Không có từ nào để mô hình dựa vào, chỉ còn xác suất tiên nghiệm nghiêng về ham |
+| Thư spam bị bỏ sót | "Subject: holiday e - cards" | Quá ngắn, các từ không đặc trưng cho spam |
+| Thư ham bị chặn nhầm | "Subject: important video announcement … please go to to access the video" | Thư nội bộ nhưng dùng lối viết giống thư quảng cáo |
+| Thư ham bị chặn nhầm | "Subject: please note my new email address … yahoo . com" | Chứa địa chỉ email cá nhân, ít từ đặc trưng công việc |
+
+➢ Nhận xét chung:
+
+- Ưu điểm của Naive Bayes: huấn luyện và dự đoán rất nhanh, độ chính xác cao trên dữ liệu cùng nguồn (93,06% trên tập kiểm thử), kết quả dễ giải thích qua các từ đóng góp.
+- Hạn chế: mô hình phụ thuộc mạnh vào từ vựng của dữ liệu huấn luyện; thư quá ngắn hoặc không chứa từ đặc trưng dễ bị phân loại sai; xác suất dự đoán thường bị đẩy về gần 0 hoặc 1 nên không nên hiểu là "độ tin cậy" thực sự.
 
 ## 6. Kiểm thử trên nguồn dữ liệu khác (SpamAssassin)
 
-TODO
+Để đánh giá khả năng tổng quát hóa, nhóm dùng mô hình Python tự cài đặt (mục IV) đã học trên tập huấn luyện Enron để dự đoán bộ dữ liệu **SpamAssassin** [10], một nguồn email hoàn toàn khác (sau khi làm sạch còn 5267 email: 3912 ham, 1355 spam). Bộ dữ liệu này không được dùng trong huấn luyện.
+
+Bảng 5: Kết quả trên tập kiểm thử Enron và trên SpamAssassin
+
+| Mô hình | Tập dữ liệu | Accuracy | Precision (spam) | Recall (spam) | F-Measure (spam) |
+|---|---|---|---|---|---|
+| Naive Bayes | Enron – test (1498) | 93,79% | 0,859 | 0,937 | 0,896 |
+| Naive Bayes | SpamAssassin (5267) | 44,33% | 0,314 | 0,985 | 0,476 |
+| Cây quyết định | Enron – test (1498) | 92,66% | 0,828 | 0,939 | 0,880 |
+| Cây quyết định | SpamAssassin (5267) | 44,88% | 0,294 | 0,816 | 0,432 |
+
+![Hình 26: Ma trận nhầm lẫn của Naive Bayes trên SpamAssassin](results/figures/confusion_nb_external.png)
+
+➢ Nhận xét:
+
+- Khi chuyển sang nguồn dữ liệu khác, độ chính xác của cả hai mô hình giảm mạnh từ khoảng 93% xuống khoảng 44%. Nguyên nhân chủ yếu là **lệch miền dữ liệu**: mô hình học được rất nhiều từ đặc thù của thư nội bộ Enron (như `enron`, `hpl`, `gas`, `meter`) làm dấu hiệu của thư hợp lệ. Thư hợp lệ của SpamAssassin không chứa các từ này nên phần lớn bị gắn nhầm là spam (2911 thư ham bị chặn nhầm với Naive Bayes).
+- Recall của lớp spam vẫn rất cao (Naive Bayes bắt được 98,5% thư spam), chứng tỏ mô hình vẫn nhận ra đặc điểm của thư rác, nhưng mất khả năng nhận ra thư hợp lệ của tổ chức khác.
+- Kết luận: mô hình chỉ nên dùng cho dữ liệu cùng nguồn với dữ liệu huấn luyện. Muốn áp dụng rộng hơn cần huấn luyện trên dữ liệu đa dạng từ nhiều tổ chức (hướng phát triển).
+

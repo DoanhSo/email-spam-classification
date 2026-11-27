@@ -1,14 +1,14 @@
 max_characters: 100000
-default_model: tree
+default_model: nb
 models:
   tree:
     name: Decision Tree
     adapter: tree
-    release: artifacts/tree-enron-v1
+    release: artifacts/tree-weka7030-v1
   nb:
     name: Naive Bayes
     adapter: nb
-    release: null
+    release: artifacts/nb-weka7030-v1
   lr:
     name: Logistic Regression
     adapter: lr

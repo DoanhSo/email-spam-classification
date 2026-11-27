@@ -42,3 +42,9 @@ def test_checksum_mismatch_rejected(release):
 def test_no_vocabulary_warning(release):
     result = NBTextPredictor(release[0]).predict_texts(["zzzz qqqq"])[0]
     assert result["matched_features"] == 0 and result["warning"] is not None
+
+
+def test_ham_prediction_lists_ham_leaning_words_first(release):
+    result = NBTextPredictor(release[0]).predict_texts(["monday meeting notes free contract review please"])[0]
+    assert result["label"] == 0
+    assert result["top_words"][0]["contribution"] < 0

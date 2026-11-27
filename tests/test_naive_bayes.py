@@ -53,3 +53,8 @@ def test_explain_orders_by_spam_contribution():
     result = fitted().explain([0, 1, 3], ["a", "b", "c"])
     assert result[0][0] == "c"
     assert "a" not in [word for word, _ in result]
+
+
+def test_explain_for_ham_orders_by_ham_contribution():
+    result = fitted().explain([2, 1, 1], ["a", "b", "c"], label=0)
+    assert result[0][0] == "a" and result[0][1] < 0

@@ -41,13 +41,13 @@ Bảng 1: Tóm tắt các công trình liên quan
 Từ tổng quan tài liệu, nhóm đặt câu hỏi nghiên cứu: *với dữ liệu email tiếng Anh, Multinomial Naive Bayes có phát hiện thư rác tốt hơn cây quyết định hay không?* Câu hỏi này được chuyển thành cặp giả thuyết có thể kiểm định:
 
 - **H0** (giả thuyết không): trên dữ liệu Enron, F-Measure của lớp spam do Multinomial Naive Bayes và cây quyết định J48 đạt được **không khác nhau**.
-- **H1** (giả thuyết đối): F-Measure của lớp spam do Multinomial Naive Bayes đạt được **lớn hơn** cây quyết định J48.
+- **H1** (giả thuyết đối): F-Measure của lớp spam do Multinomial Naive Bayes và cây quyết định J48 đạt được **khác nhau**. Dựa trên tổng quan tài liệu, nhóm kỳ vọng nếu có khác biệt thì Naive Bayes sẽ cao hơn.
 
-Thiết kế kiểm định: dùng Weka Experimenter chạy kiểm chứng chéo 10 lần × 10 fold trên tập huấn luyện, so sánh hai mô hình bằng kiểm định t ghép cặp có hiệu chỉnh (*Paired T-Tester, corrected*) với mức ý nghĩa α = 0,05. Ngoài F-Measure, nhóm theo dõi thêm độ chính xác (Percent correct) và diện tích dưới đường cong ROC (AUC). Kết quả được trình bày ở mục III.4.
+Thiết kế kiểm định: dùng Weka Experimenter chạy kiểm chứng chéo 10 lần × 10 fold trên tập huấn luyện, so sánh hai mô hình bằng kiểm định t ghép cặp có hiệu chỉnh (*Paired T-Tester, corrected*), **hai phía**, với mức ý nghĩa α = 0,05. Ngoài F-Measure, nhóm theo dõi thêm độ chính xác (Percent correct) và diện tích dưới đường cong ROC (AUC). Kết quả được trình bày ở mục III.4.
 
 ## 5. Quy trình thực hiện
 
-Quy trình khai phá dữ liệu gồm 6 bước:
+Theo bài giảng của môn học [1], quy trình khai phá dữ liệu gồm 6 bước:
 
 - Bước 1: Tạo tập tin dữ liệu đầu vào
 - Bước 2: Tiền xử lý, làm sạch tập dữ liệu
@@ -62,7 +62,7 @@ i. Thu thập dữ liệu và chuyển sang định dạng ARFF của Weka
 ii. Tiền xử lý dữ liệu (làm sạch, loại trùng lặp)
 iii. Biến đổi dữ liệu (vector hóa văn bản, lựa chọn thuộc tính)
 iv. Phân tách dữ liệu huấn luyện/kiểm thử (70/30)
-v. Xây dựng và đánh giá mô hình phân lớp trên Weka, kiểm định giả thuyết
+v. Xây dựng và đánh giá mô hình phân lớp trên công cụ Weka [11], kiểm định giả thuyết
 vi. Tự cài đặt thuật toán bằng Python, đối chiếu với Weka và xây dựng chương trình dự đoán
 
 ## 6. Phân tích dữ liệu thô

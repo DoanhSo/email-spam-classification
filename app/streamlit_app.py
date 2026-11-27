@@ -75,7 +75,7 @@ def render_result(result: dict):
         if row["model_id"] == "nb":
             with st.expander("Vì sao Naive Bayes có dự đoán này?", expanded=True):
                 st.write(f"Xác suất spam (chưa hiệu chuẩn): **{row['score_value']:.1%}**")
-                st.write("Từ đóng góp nhiều nhất vào quyết định spam:")
+                st.write(f"Từ đóng góp nhiều nhất vào kết luận {'spam' if row['label'] else 'thư thường'}:")
                 st.table([{"Từ": item["word"], "Đóng góp (log-odds)": f"{item['contribution']:+.3f}"}
                           for item in row["top_words"]])
                 st.caption(f"Khớp {row['matched_features']} từ trong bộ từ vựng trên {row['unique_tokens']} token duy nhất sau xử lý. "

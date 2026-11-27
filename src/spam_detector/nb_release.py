@@ -60,7 +60,8 @@ class NBTextPredictor:
                 "label": label, "class_name": "spam" if label else "ham",
                 "score_kind": "probability_uncalibrated", "score_value": float(spam),
                 "matched_features": matched, "unique_tokens": len(tokens),
-                "top_words": [{"word": w, "contribution": c} for w, c in self.model.explain(row, self.feature_names)],
+                "top_words": [{"word": w, "contribution": c}
+                              for w, c in self.model.explain(row, self.feature_names, label=label)],
                 "warning": "No vocabulary word matches; prediction falls back to class priors" if not matched else None,
             })
         return results

@@ -45,6 +45,7 @@ Mỗi bước ghi rõ: **hình cần chụp**, **đường dẫn menu Weka**, **
 
 1. **Filter → Choose → unsupervised → attribute → StringToWordVector.** Bấm vào tên bộ lọc để mở
    bảng tham số và đặt:
+   - `attributeNamePrefix = W_` (bắt buộc: email có chứa từ "class", nếu không đặt tiền tố thì từ này trùng tên với thuộc tính lớp và Weka báo lỗi "Attribute names are not unique")
    - `outputWordCounts = True`
    - `lowerCaseTokens = True`
    - `minTermFreq = 2`
@@ -116,7 +117,7 @@ Mở **Weka GUI Chooser → Simple CLI**. Gõ lần lượt hai lệnh dưới �
 và chờ chữ "Finished" hoặc dấu nhắc mới:
 
 ```
-java weka.filters.unsupervised.attribute.StringToWordVector -b -i C:\Users\mrdoanh\Downloads\KhaiPhaDL\reports\weka\data\train.arff -o C:\Users\mrdoanh\Downloads\KhaiPhaDL\reports\weka\data\train_s2w.arff -r C:\Users\mrdoanh\Downloads\KhaiPhaDL\reports\weka\data\test.arff -s C:\Users\mrdoanh\Downloads\KhaiPhaDL\reports\weka\data\test_s2w.arff -C -L -M 2 -W 2000 -stopwords-handler weka.core.stopwords.Rainbow -c last
+java weka.filters.unsupervised.attribute.StringToWordVector -b -i C:\Users\mrdoanh\Downloads\KhaiPhaDL\reports\weka\data\train.arff -o C:\Users\mrdoanh\Downloads\KhaiPhaDL\reports\weka\data\train_s2w.arff -r C:\Users\mrdoanh\Downloads\KhaiPhaDL\reports\weka\data\test.arff -s C:\Users\mrdoanh\Downloads\KhaiPhaDL\reports\weka\data\test_s2w.arff -C -L -M 2 -W 2000 -P W_ -stopwords-handler weka.core.stopwords.Rainbow -c last
 ```
 
 Mở `train_s2w.arff` trong Explorer để xem `class` có nằm ở **đầu** danh sách thuộc tính không.
@@ -135,8 +136,9 @@ Kết quả cần có: `data\train_vec.arff` và `data\test_vec.arff`.
 2. Result destination: **ARFF file** → `results\experiment.arff`.
 3. Result generator: `CrossValidationResultProducer`, `numFolds = 10`. Bấm vào tên →
    `splitEvaluator` = `ClassifierSplitEvaluator` → đặt **`classForIRStatistics`** về lớp
-   **spam**. Lớp spam là giá trị thứ 2 của `class {ham,spam}`. Xem tooltip để biết ô này nhận chỉ số
-   đếm từ 0 hay từ 1: đếm từ 0 thì nhập 1, đếm từ 1 thì nhập 2.
+   **spam**. Ô này trên giao diện **đếm từ 0** (ham = 0, spam = 1), nên nhập **1**. Kiểm tra: dòng
+   Result generator phải hiện `-C 2` (tham số dòng lệnh đếm từ 1). Nếu hiện `-C 3` là sai lớp.
+   Sau đó kiểm tra **Generator properties = Enabled** và danh sách vẫn có đủ 2 thuật toán.
 4. Runs: from **1** to **10**.
 5. Datasets → **Add new…** → `data\train.arff`. **Chỉ dùng train**, không dùng test.
 6. Generator properties → Enabled → chọn `classifier`. Thêm 2 cấu hình FilteredClassifier giống

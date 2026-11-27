@@ -1,0 +1,29 @@
+{
+  "n_test": 1498,
+  "n_features": 500,
+  "agreement": 1498,
+  "disagreements": [],
+  "max_abs_proba_diff": 0.0004980006151371619,
+  "python_metrics": {
+    "n_samples": 1498,
+    "tn": 1009,
+    "fp": 60,
+    "fn": 44,
+    "tp": 385,
+    "accuracy": 0.9305740987983978,
+    "precision_spam": 0.8651685393258427,
+    "recall_spam": 0.8974358974358975,
+    "f1_spam": 0.8810068649885583
+  },
+  "weka_metrics": {
+    "n_samples": 1498,
+    "tn": 1009,
+    "fp": 60,
+    "fn": 44,
+    "tp": 385,
+    "accuracy": 0.9305740987983978,
+    "precision_spam": 0.8651685393258427,
+    "recall_spam": 0.8974358974358975,
+    "f1_spam": 0.8810068649885583
+  }
+}

@@ -19,13 +19,13 @@ def config():
 def test_service_matches_existing_text_predictor(config):
     service = PredictionService(config)
     subject, body = "Budget", "Please review the attached Enron report."
-    expected = TextPredictor(ROOT / "artifacts/tree-enron-v1").predict_texts([f"Subject: {subject}\n{body}"])[0]
-    result = service.predict(subject, body)
+    expected = TextPredictor(ROOT / "artifacts/tree-weka7030-v1").predict_texts([f"Subject: {subject}\n{body}"])[0]
+    result = service.predict(subject, body, model_id="tree")
     assert result["results"][0]["label"] == expected["label"]
     assert result["results"][0]["score_value"] == expected["spam_fraction"]
     assert result["results"][0]["path"] == expected["path"]
     assert "body" not in result and "subject" not in result
-    assert service.ready_ids == ["tree"]
+    assert service.ready_ids == ["tree", "nb"]
     assert not service.ensemble_available()
 
 
@@ -46,9 +46,11 @@ def test_combined_length_and_subject_rules(config):
 
 def test_model_missing_load_error_and_ensemble_gate(config):
     config["models"]["tree"]["release"] = str(ROOT / "missing-release")
+    config["models"]["nb"]["release"] = str(ROOT / "missing-release")
     service = PredictionService(config)
     assert service.statuses["tree"]["status"] == "load_error"
-    assert service.statuses["nb"]["status"] == "not_configured"
+    assert service.statuses["nb"]["status"] == "load_error"
+    assert service.statuses["lr"]["status"] == "not_configured"
     for mode in ("single", "compare", "ensemble", "invalid"):
         with pytest.raises(ValueError):
             service.predict("", "hello email", mode)
@@ -56,9 +58,8 @@ def test_model_missing_load_error_and_ensemble_gate(config):
 
 def test_compare_only_returns_real_models_and_oov_warning(config):
     result = PredictionService(config).predict("", "zzzzzzqqqqqq", mode="compare")
-    assert len(result["results"]) == 1
-    assert result["results"][0]["warning"]
-    assert result["results"][0]["matched_features"] == 0
+    assert [row["model_id"] for row in result["results"]] == ["tree", "nb"]
+    assert all(row["warning"] and row["matched_features"] == 0 for row in result["results"])
 
 
 def test_runtime_error_and_malformed_prediction_are_contained(config):

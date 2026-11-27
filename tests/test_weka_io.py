@@ -81,3 +81,15 @@ def test_cli_export_arff(tmp_path, capsys):
     assert main(["export-arff", "--csv", str(_enron_csv(tmp_path / "e.csv")), "--output", str(out)]) == 0
     assert '"rows": 3' in capsys.readouterr().out
     assert len(read_text_arff(out)) == 3
+
+
+def test_vector_arff_sparse_keeps_trailing_empty_rows(tmp_path):
+    path = tmp_path / "vec.arff"
+    path.write_text(
+        "@relation v\n@attribute class {ham,spam}\n@attribute a numeric\n@data\n"
+        "{0 spam,1 1}\n{1 3}\n{}\n{}\n",
+        encoding="utf-8",
+    )
+    X, y, _ = read_vector_arff(path)
+    assert X.tolist() == [[1], [3], [0], [0]]
+    assert y.tolist() == [1, 0, 0, 0]

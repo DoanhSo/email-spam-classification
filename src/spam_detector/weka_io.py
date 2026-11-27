@@ -61,7 +61,8 @@ def read_vector_arff(path: str | Path) -> tuple[np.ndarray, np.ndarray, list[str
     body = content[marker + 5:] if marker >= 0 else ""
     first = next((line.strip() for line in body.splitlines() if line.strip() and not line.lstrip().startswith("%")), "")
     is_sparse = first.startswith("{")
-    raw = arff.loads(content, return_type=arff.COO if is_sparse else arff.DENSE)
+    # LOD keeps one dict per sparse row, so rows written as "{}" are not lost.
+    raw = arff.loads(content, return_type=arff.LOD if is_sparse else arff.DENSE)
     names = [name for name, _ in raw["attributes"]]
     c = _class_index(names, raw["attributes"])
     features = [i for i in range(len(names)) if i != c]
@@ -69,17 +70,17 @@ def read_vector_arff(path: str | Path) -> tuple[np.ndarray, np.ndarray, list[str
         if str(raw["attributes"][i][1]).upper() not in ("NUMERIC", "REAL", "INTEGER"):
             raise ValueError(f"Feature attribute '{names[i]}' is not numeric")
     if is_sparse:
-        values, rows, cols = raw["data"]
-        n_rows = max(rows) + 1 if len(rows) else 0
-        X = np.zeros((n_rows, len(names)), dtype=np.float64)
-        y = np.zeros(n_rows, dtype=np.int64)
+        rows = raw["data"]
+        X = np.zeros((len(rows), len(names)), dtype=np.float64)
+        y = np.zeros(len(rows), dtype=np.int64)
         # Sparse rows omit zero values; for a nominal class, omitted means the first declared value.
         y[:] = CLASSES[raw["attributes"][c][1][0]]
-        for value, r, col in zip(values, rows, cols):
-            if col == c:
-                y[r] = CLASSES[value]
-            else:
-                X[r, col] = float(value)
+        for r, row in enumerate(rows):
+            for col, value in row.items():
+                if col == c:
+                    y[r] = CLASSES[value]
+                else:
+                    X[r, col] = float(value)
         return X[:, features], y, [names[i] for i in features]
     data = raw["data"]
     X = np.array([[float(row[i]) for i in features] for row in data], dtype=np.float64).reshape(len(data), len(features))

@@ -183,8 +183,9 @@ Các mục có dấu ★ là phần thêm so với mẫu, để đáp ứng slid
 ## 7. Giả thuyết và kiểm định
 
 - H0: trên Enron, F-Measure lớp spam của NB và J48 không khác nhau.
-- H1: F-Measure của NB lớn hơn J48. Đây là giả thuyết một phía, thực hiện bằng t-test hai phía
-  của Weka rồi đọc theo dấu của hiệu số.
+- H1: F-Measure của NB và J48 khác nhau (hai phía, khớp với Paired T-Tester của Weka); kỳ vọng
+  NB cao hơn, đọc theo dấu của hiệu số. (Sửa ngày 27/11: bản đầu ghi H1 một phía nhưng kiểm định
+  hai phía, không nhất quán.)
 - Thiết kế: Weka Experimenter, 10 lần × 10-fold CV, *Paired T-Tester (corrected)*, α = 0,05.
   Đo thêm Percent_correct và Area_under_ROC.
 - Báo cáo bảng kết quả và ký hiệu v/* của Weka. Trình bày kết luận theo khuôn của slide
